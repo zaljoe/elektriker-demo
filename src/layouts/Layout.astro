@@ -327,17 +327,7 @@ const url = canonical ?? Astro.url.href;
     }
   </style>
 
-  <script is:inline>
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('mobile-nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const open = nav.style.display === 'block';
-        nav.style.display = open ? 'none' : 'block';
-        toggle.setAttribute('aria-expanded', String(!open));
-      });
-    }
-  </script>
+  <script src="/js/nav.js" defer></script>
   <script src="/js/accordion.js" defer></script>
   <script src="/js/maps.js" defer></script>
 </body>

@@ -435,22 +435,5 @@ const faqs = [
     details[open] .faq-summary span:last-child { transform: rotate(45deg); display: inline-block; }
   </style>
 
-  <script is:inline>
-    function switchTab(tab) {
-      const tabService = document.getElementById('tab-service');
-      const tabQuote = document.getElementById('tab-quote');
-      if (!tabService || !tabQuote) return;
-      if (tab === 'service') {
-        tabService.style.background = 'var(--brand)';
-        tabService.style.color = '#fff';
-        tabQuote.style.background = '#fff';
-        tabQuote.style.color = '';
-      } else {
-        tabQuote.style.background = 'var(--brand)';
-        tabQuote.style.color = '#fff';
-        tabService.style.background = '#fff';
-        tabService.style.color = '';
-      }
-    }
-  </script>
+  <script src="/js/tabs.js" defer></script>
 </Layout>
