@@ -70,11 +70,14 @@ const jsonld = JSON.stringify({
             </div>
             <div>
               <label for="fservice" style="display:block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.4rem;">Typ av tjänst *</label>
-              <select id="fservice" name="service" required style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:0.9rem;color:var(--text-main);background:#fff;outline:none;transition:border-color .15s;appearance:none;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'">
+              <div style="position:relative;">
+              <select id="fservice" name="service" required style="width:100%;padding:0.75rem 2.5rem 0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:0.9rem;color:var(--text-main);background:#fff;outline:none;transition:border-color .15s;appearance:none;cursor:pointer;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'">
                 <option value="">Välj tjänst...</option>
                 {SERVICES.map(s => <option value={s.slug}>{s.title}</option>)}
                 <option value="other">Annat / vet ej</option>
               </select>
+              <svg style="position:absolute;right:0.875rem;top:50%;transform:translateY(-50%);pointer-events:none;" width="14" height="14" fill="none" stroke="var(--text-muted)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </div>
             </div>
             <div>
               <label for="fdesc" style="display:block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.4rem;">Beskrivning *</label>
