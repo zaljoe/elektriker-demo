@@ -7,8 +7,9 @@ interface Props {
   canonical?: string;
   noindex?: boolean;
   jsonld?: string;
+  preloadImage?: string;
 }
-const { title, description, canonical, noindex = false, jsonld } = Astro.props;
+const { title, description, canonical, noindex = false, jsonld, preloadImage } = Astro.props;
 const url = canonical ?? Astro.url.href;
 ---
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ const url = canonical ?? Astro.url.href;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="preload" href="/image.jpg" as="image" fetchpriority="high" />
+  {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
 
   <style is:global>
     :root {
