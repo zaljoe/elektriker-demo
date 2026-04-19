@@ -1,0 +1,340 @@
+---
+import { COMPANY, SERVICES } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+  jsonld?: string;
+}
+const { title, description, canonical, noindex = false, jsonld } = Astro.props;
+const url = canonical ?? Astro.url.href;
+---
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex,nofollow" />}
+  <title>{title}</title>
+  <link rel="canonical" href={url} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={url} />
+  {jsonld && <script type="application/ld+json" is:inline set:html={jsonld} />}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style is:global>
+    :root {
+      --brand:        #77A9ED;
+      --brand-hover:  #5b91d8;
+      --text-main:    #111827;
+      --text-muted:   #4B5563;
+      --text-light:   #9CA3AF;
+      --bg-page:      #FFFFFF;
+      --bg-alt:       #F4F6F8;
+      --bg-dark:      #1F2937;
+      --border:       #E5E7EB;
+      --font:         'Inter', sans-serif;
+      --radius-sm:    2px;
+      --radius-md:    6px;
+      --shadow-card:  0 20px 40px -10px rgba(0,0,0,0.15), 0 10px 20px -5px rgba(0,0,0,0.05);
+      --shadow-sm:    0 4px 6px -1px rgba(0,0,0,0.05);
+      --container:    1280px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text-main);
+      background: var(--bg-page);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: var(--font); border: none; }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.875rem 1.5rem; font-size: 0.875rem; font-weight: 600;
+      transition: all .2s ease; cursor: pointer; border-radius: var(--radius-sm);
+      border: none; white-space: nowrap;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-hover); }
+    .btn-outline {
+      background: transparent; color: var(--text-main);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--text-main); }
+    .btn-white { background: #fff; color: var(--text-main); box-shadow: var(--shadow-sm); }
+    .btn-white:hover { background: #f9fafb; }
+
+    /* Section */
+    .section { padding: 6rem 0; }
+    .section-sm { padding: 4rem 0; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--brand); display: block; margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 0.5rem; line-height: 1.15;
+    }
+    .section-subtitle {
+      font-size: 1.1rem; color: var(--text-muted); max-width: 600px; line-height: 1.7;
+    }
+
+    /* Pulse dot */
+    .pulse-dot {
+      height: 8px; width: 8px; background: var(--brand); border-radius: 50%;
+      display: inline-block; margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(119,169,237,0.4); }
+      70%  { box-shadow: 0 0 0 6px rgba(119,169,237,0); }
+      100% { box-shadow: 0 0 0 0 rgba(119,169,237,0); }
+    }
+
+    /* Focus */
+    :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.5rem 0;font-size:0.75rem;font-weight:500;color:var(--text-muted);">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <div>Godkänd &amp; Försäkrad · {COMPANY.city}</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header style="background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:80px;">
+
+      <!-- Logo -->
+      <a href="/" style="display:flex;align-items:center;gap:0.65rem;text-decoration:none;" aria-label="Hem">
+        <div style="width:36px;height:36px;background:var(--brand);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/></svg>
+        </div>
+        <span style="font-size:1.35rem;font-weight:800;letter-spacing:-0.04em;color:var(--text-main);line-height:1;">
+          JM<span style="color:var(--brand);margin-left:0.18em;">EL</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav style="display:none;gap:2rem;font-size:0.875rem;font-weight:600;" class="desktop-nav" aria-label="Huvudnavigation">
+
+        <!-- Tjänster dropdown -->
+        <div class="nav-dropdown">
+          <a href="/services/" class="nav-dropdown-trigger">
+            Tjänster
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true" style="margin-left:3px;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            {SERVICES.map(s => (
+              <a href={`/services/${s.slug}/`} class="nav-dropdown-item">{s.title}</a>
+            ))}
+          </div>
+        </div>
+
+        <a href="/about/" style="transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color=''">Om oss</a>
+        <a href="/reviews/" style="transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color=''">Recensioner</a>
+        <a href="/service-areas/" style="transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color=''">Serviceområden</a>
+        <a href="/blog/" style="transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color=''">Blogg</a>
+      </nav>
+
+      <!-- Actions -->
+      <div style="display:flex;align-items:center;gap:1.5rem;">
+        <a href={COMPANY.phoneTel} style="display:none;align-items:center;gap:0.5rem;font-weight:700;font-size:0.95rem;" class="header-phone">
+          <span class="pulse-dot"></span>
+          Dygnet runt: {COMPANY.phone}
+        </a>
+        <a href="/contact/" class="btn btn-outline" style="font-size:0.85rem;padding:0.75rem 1.4rem;">Kontakt</a>
+        <a href="/contact/" class="btn btn-primary" style="font-size:0.85rem;padding:0.75rem 1.4rem;">Få offert</a>
+        <button id="menu-toggle" aria-label="Öppna meny" aria-expanded="false" style="width:40px;height:40px;border:1.5px solid var(--border);background:transparent;border-radius:var(--radius-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;">
+          <span style="width:18px;height:1.5px;background:var(--text-main);display:block;"></span>
+          <span style="width:18px;height:1.5px;background:var(--text-main);display:block;"></span>
+          <span style="width:18px;height:1.5px;background:var(--text-main);display:block;"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-nav" style="display:none;border-top:1px solid var(--border);background:#fff;padding:1.25rem 1.5rem;">
+      <nav aria-label="Mobilnavigation">
+        <ul style="display:flex;flex-direction:column;gap:0.15rem;">
+          {[
+            { href: "/", label: "Hem" },
+            { href: "/services/", label: "Tjänster" },
+            { href: "/about/", label: "Om oss" },
+            { href: "/reviews/", label: "Recensioner" },
+            { href: "/service-areas/", label: "Serviceområden" },
+            { href: "/blog/", label: "Blogg" },
+            { href: "/contact/", label: "Kontakt" },
+          ].map(l => (
+            <li><a href={l.href} style="display:block;padding:0.7rem 0.75rem;font-weight:500;border-radius:var(--radius-sm);transition:background .15s;" onmouseenter="this.style.background='var(--bg-alt)'" onmouseleave="this.style.background=''">{l.label}</a></li>
+          ))}
+        </ul>
+        <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.6rem;">
+          <a href={COMPANY.phoneTel} class="btn btn-primary" style="justify-content:center;">
+            <span class="pulse-dot"></span> Ring {COMPANY.phone}
+          </a>
+          <a href="/contact/" class="btn btn-outline" style="justify-content:center;">Gratis offert</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--bg-dark);color:#fff;padding:4rem 0 2rem;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem;" class="footer-grid">
+
+        <!-- Brand -->
+        <div>
+          <a href="/" style="display:inline-flex;align-items:center;gap:0.6rem;text-decoration:none;margin-bottom:1.25rem;">
+            <div style="width:32px;height:32px;background:var(--brand);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/></svg>
+            </div>
+            <span style="font-size:1.2rem;font-weight:800;letter-spacing:-0.04em;color:#fff;line-height:1;">
+              JM<span style="color:var(--brand);margin-left:0.18em;">EL</span>
+            </span>
+          </a>
+          <p style="color:var(--text-light);font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;max-width:280px;">Professionella, byggnadslagsenliga eltjänster för bostäder och företag i {COMPANY.city} och omnejd.</p>
+          <div style="font-size:0.8rem;color:#D1D5DB;">
+            <strong>Telefon:</strong> <a href={COMPANY.phoneTel} style="color:#D1D5DB;">{COMPANY.phone}</a><br/>
+            <strong>E-post:</strong> <a href={`mailto:${COMPANY.email}`} style="color:#D1D5DB;">{COMPANY.email}</a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:1.25rem;color:#fff;">Tjänster</h3>
+          <ul style="display:flex;flex-direction:column;gap:0.6rem;">
+            {SERVICES.map(s => (
+              <li><a href={`/services/${s.slug}/`} style="font-size:0.875rem;color:var(--text-light);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-light)'">{s.title}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:1.25rem;color:#fff;">Företag</h3>
+          <ul style="display:flex;flex-direction:column;gap:0.6rem;">
+            {[
+              { href: "/about/", label: "Om oss" },
+              { href: "/reviews/", label: "Recensioner" },
+              { href: "/service-areas/", label: "Serviceområden" },
+              { href: "/blog/", label: "Blogg" },
+              { href: "/contact/", label: "Kontakt" },
+            ].map(l => (
+              <li><a href={l.href} style="font-size:0.875rem;color:var(--text-light);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-light)'">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Emergency -->
+        <div>
+          <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:1.25rem;color:#fff;">Akutjour</h3>
+          <p style="font-size:0.875rem;color:var(--text-light);line-height:1.7;margin-bottom:1.25rem;">{COMPANY.hours}</p>
+          <div style="padding:1rem;background:rgba(119,169,237,0.15);border:1px solid rgba(119,169,237,0.3);border-radius:var(--radius-sm);">
+            <p style="font-size:0.8rem;color:#77A9ED;font-weight:600;margin-bottom:0.4rem;">Elektrisk nödsituation?</p>
+            <a href={COMPANY.phoneTel} style="font-size:0.9rem;color:#fff;font-weight:700;">{COMPANY.phone}</a>
+            <p style="font-size:0.72rem;color:var(--text-light);margin-top:0.25rem;">Jour dygnet runt</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+        <p style="font-size:0.75rem;color:var(--text-light);">© {new Date().getFullYear()} {COMPANY.name}. Alla rättigheter förbehållna.</p>
+        <div style="display:flex;gap:1.25rem;">
+          <a href="/privacy/" style="font-size:0.75rem;color:var(--text-light);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-light)'">Integritetspolicy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 2px;
+      transition: color .15s; cursor: pointer;
+    }
+    .nav-dropdown-trigger:hover { color: var(--brand); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card); min-width: 240px; padding: 12px 0 0.4rem;
+      opacity: 0; visibility: hidden; transition: opacity .15s, transform .15s;
+      transform: translateX(-50%) translateY(-4px);
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-item {
+      display: block; padding: 0.65rem 1.1rem;
+      font-size: 0.85rem; font-weight: 600; color: var(--text-main);
+      transition: background .15s, color .15s;
+    }
+    .nav-dropdown-item:hover { background: var(--bg-alt); color: var(--brand); }
+
+    @media(min-width:900px){
+      .desktop-nav { display:flex !important; }
+      .header-phone { display:flex !important; }
+      #menu-toggle { display:none !important; }
+    }
+    @media(max-width:768px){
+      .topbar-links { display:none !important; }
+      .footer-grid { grid-template-columns: 1fr 1fr !important; gap:2rem !important; }
+    }
+    @media(max-width:480px){
+      .footer-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <script is:inline>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('mobile-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.style.display === 'block';
+        nav.style.display = open ? 'none' : 'block';
+        toggle.setAttribute('aria-expanded', String(!open));
+      });
+    }
+  </script>
+  <script src="/js/accordion.js" defer></script>
+</body>
+</html>

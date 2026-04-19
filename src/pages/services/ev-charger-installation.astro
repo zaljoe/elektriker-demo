@@ -1,0 +1,38 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { COMPANY } from '../../config';
+---
+<ServicePage
+  title="EV-laddare Installation"
+  metaTitle={`EV-laddare Installation i ${COMPANY.city} | ${COMPANY.name}`}
+  metaDesc={`Installation av EV-laddare i ${COMPANY.city}. Alla märken. Behörig elektriker, tillstånd ingår. Från 4 500 kr. Ring ${COMPANY.phone}.`}
+  slug="ev-charger-installation"
+  problem={`En vanlig vägguttag laddar din elbil med ungefär 1,5 kWh per timme. En dedikerad EV-laddare ger 7–22 kWh per timme. Skillnaden är att vakna till fullt batteri varje morgon. Vi installerar rätt — dedikerad krets, rätt säkring, regelsäkert.`}
+  included={[
+    "Dedikerad 230V/400V krets för EV-laddare",
+    "Vägg- eller stolpmontering av laddare",
+    "Kompatibel med Tesla, Volvo, BMW, Volkswagen och alla märken",
+    "Fast installation eller uttag för plugg-in-laddare",
+    "Bedömning av centralens kapacitet",
+    "Tillståndsansökan och besiktning",
+    "Inställning av smart laddare och app-konfiguration",
+  ]}
+  steps={[
+    { title: "Platsbesiktning", text: "Vi kontrollerar centralens kapacitet, garageupplägg och önskad placering för att rekommendera bästa lösning." },
+    { title: "Skriftlig offert", text: "Du får ett tydligt pris som inkluderar dedikerad krets, säkring och installation. Laddaren kan vi leverera eller du köper den själv." },
+    { title: "Installation på en halvdag", text: "De flesta EV-laddare installeras på 3–4 timmar. Minimal störning i din vardag." },
+    { title: "Tillstånd och test", text: "Vi hanterar tillståndet, testar hela laddcykeln och går igenom driftsättningen med dig." },
+  ]}
+  priceSignal="EV-laddare installation från 4 500 kr (inkluderar dedikerad krets). Kostnadsfri offert."
+  reviews={[
+    { name: "Maria T.", date: "Januari 2025", text: "Fick en EV-laddare installerad i garaget. Klart på en halvdag, allt regelsäkert. Teknikern gick igenom exakt vad som gjorts." },
+    { name: "Alex F.", date: "Mars 2025", text: "Installerade en laddare till min elbil. Centralen behövde en extra säkring — de fixade alltihop i ett och samma besök." },
+    { name: "Priya M.", date: "Februari 2025", text: "Flyttade in i nytt hus och behövde laddare i det fristående garaget. De drog kabel från huvudcentralen, installerade laddaren och var klara till lunch." },
+  ]}
+  faqs={[
+    { q: "Vad är skillnaden på att ladda med vanligt uttag vs EV-laddare?", a: "Vanligt 230V-uttag ger ca 1,5 kWh/timme. En dedikerad EV-laddare ger 7–22 kWh/timme. För daglig körning är en EV-laddare den praktiska lösningen." },
+    { q: "Klarar min elcentral en EV-laddare?", a: "Oftast ja, men det beror på din nuvarande belastning. Vi bedömer alltid centralen först och berättar om uppgradering behövs." },
+    { q: "Krävs tillstånd för EV-laddare?", a: "Ja. All 230/400V-installation kräver tillstånd. Vi söker det och hanterar besiktningen." },
+    { q: "Kan ni leverera laddaren eller köper jag den själv?", a: "Båda alternativen fungerar. Vi kan leverera en laddare eller installera en du köpt. Vi rekommenderar och lagerhåller flera välkända märken." },
+  ]}
+/>

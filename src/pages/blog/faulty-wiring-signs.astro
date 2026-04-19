@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { COMPANY } from '../../config';
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tecken på felaktig elinstallation i äldre hus",
+  "author": { "@type": "Organization", "name": COMPANY.name },
+  "publisher": { "@type": "Organization", "name": COMPANY.name },
+  "datePublished": "2025-03-01",
+  "dateModified": "2025-03-01"
+});
+---
+<Layout
+  title={`Tecken på felaktig elinstallation i äldre hus | ${COMPANY.name} ${COMPANY.city}`}
+  description="Hus byggda före 1980 har ofta el som aldrig var designad för moderna ellaster. En licensierad elektriker förklarar varningstecknen."
+  canonical="https://REPLACE-WITH-DOMAIN.com/blog/faulty-wiring-signs/"
+  jsonld={jsonld}
+>
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <a href="/blog/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Blogg</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">Felaktig elinstallation</span>
+    </div>
+  </div>
+
+  <article style="max-width:720px;margin:0 auto;padding:4rem 1.5rem 5rem;">
+    <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);">Mars 2025 · {COMPANY.name}</span>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;color:var(--text-main);margin:0.75rem 0 1.25rem;line-height:1.1;">Tecken på felaktig elinstallation i äldre hus</h1>
+    <p style="font-size:1.1rem;color:var(--text-muted);line-height:1.8;margin-bottom:2.5rem;border-left:3px solid var(--brand);padding-left:1.25rem;">Elektriska bränder orsakar tusentals husbränder varje år. Majoriteten startar i väggar — osynliga tills något går fel. Dessa är varningstecknen du behöver känna till.</p>
+
+    <div style="font-size:1.05rem;color:var(--text-muted);line-height:1.85;">
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">1. Uttag eller strömbrytare som är varma att ta på</h2>
+      <p style="margin-bottom:1.5rem;">Ett fungerande uttag ska aldrig kännas varmt. Värme indikerar en lös anslutning, överlastad krets eller ljusbåge bakom väggen. Stäng av det, använd det inte och ring en elektriker.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">2. Missfärgade eller brända uttagsskydd</h2>
+      <p style="margin-bottom:1.5rem;">Svedmärken eller gulning runt ett uttag eller strömbrytare betyder att det vid något tillfälle uppstått ljusbågar eller överhettning. Detta är en direkt brandrisk och kräver omedelbar utredning.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">3. En brännande eller smältande lukt</h2>
+      <p style="margin-bottom:1.5rem;">En brännlukt utan tydlig orsak — särskilt en som kommer och går — innebär att något överhettas i en vägg eller i taket. Stäng av det drabbade området vid elcentralen och ring för en akutbesiktning.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">4. Surrande, knastrande eller fräsande ljud</h2>
+      <p style="margin-bottom:1.5rem;">El ska vara tyst. Hörbart surrande, knastrande eller fräsande från ett uttag, strömbrytare eller elcentral är ljudet av ljusbågar — el som hoppar över ett gap. Så startar elektriska bränder.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">5. Aluminiumledningar (hus från före 1975)</h2>
+      <p style="margin-bottom:1.5rem;">Mellan 1965 och 1975 installerades många hus med aluminium istället för koppar. Aluminiumledningar expanderar och kontraherar på olika sätt, vilket gör att anslutningar lossnar med tiden. Det kräver specifika åtgärder — inte bara utbyte av uttag.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">6. Inget jordfelsbrytarskydd i våtutrymmen</h2>
+      <p style="margin-bottom:1.5rem;">Gällande regler kräver jordfelsbrytarskyddade uttag i badrum, kök, garage och utomhusområden. Äldre hus saknar ofta dessa helt. En jordfelsbrytare bryter strömmen på millisekunder om det uppstår ett fel — skillnaden mellan en chock och ingenting.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">7. Tvåstiftiga uttag i hela huset</h2>
+      <p style="margin-bottom:1.5rem;">Tvåstiftiga uttag indikerar ojordade kretsar. Det är inte bara en olägenhet för moderna apparater — en ojordad krets erbjuder inget skydd för elektronik och ingen säker urladdningsväg vid fel.</p>
+
+      <div style="background:rgba(119,169,237,0.06);border:1px solid rgba(119,169,237,0.2);border-radius:var(--radius-sm);border-left:3px solid var(--brand);padding:1.25rem 1.5rem;margin:2rem 0;">
+        <p style="font-weight:700;color:var(--brand);font-size:0.95rem;">Om du märker brännlukt, värme, gnistor eller missfärgning — stäng av den drabbade kretsen omedelbart och ring en licensierad elektriker. Vänta inte.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem 2rem;margin-top:3rem;">
+      <h3 style="font-size:1.05rem;font-weight:800;color:var(--text-main);margin-bottom:0.5rem;">Orolig för din fastighets elinstallation?</h3>
+      <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.25rem;">Vi erbjuder elbesiktning och felsökning i {COMPANY.city}. Vi berättar exakt vad vi hittar — och vad det kostar att åtgärda.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.85rem;">
+        <a href="/contact/" class="btn btn-primary">Boka besiktning →</a>
+        <a href={COMPANY.phoneTel} class="btn btn-outline">Ring {COMPANY.phone}</a>
+      </div>
+    </div>
+  </article>
+</Layout>

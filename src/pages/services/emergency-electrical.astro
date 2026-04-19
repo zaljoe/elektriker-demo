@@ -1,0 +1,37 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { COMPANY } from '../../config';
+---
+<ServicePage
+  title="Akut Elektriker — Jour dygnet runt"
+  metaTitle={`Akut Elektriker i ${COMPANY.city} — Jour dygnet runt | ${COMPANY.name}`}
+  metaDesc={`Akut elektriker i ${COMPANY.city} dygnet runt. Vi svarar alltid. Snabb utryckning, behörig. Ring ${COMPANY.phone} — tillgänglig nu.`}
+  slug="emergency-electrical"
+  problem="Brinnande lukt, gnistande uttag eller totalt strömavbrott kan inte vänta till måndag. Vi har en behörig elektriker i jour dygnet runt, 7 dagar i veckan. När du ringer svarar en riktig person."
+  included={[
+    "Jour dygnet runt med behörig elektriker",
+    "Utryckning inom 90 minuter i hela serviceområdet",
+    "Felsökning och omedelbar åtgärd där möjligt",
+    "Tillfällig frånkoppling om reparation måste schemaläggas",
+    "Fullständig säkerhetskontroll innan vi lämnar",
+    "Inga dolda jourtillägg — priset bekräftas vid ankomst",
+  ]}
+  steps={[
+    { title: "Ring jourhavande elektriker", text: "Ring oss när som helst. En behörig elektriker — inte ett callcenter — svarar direkt." },
+    { title: "Säkra råd per telefon", text: "Vi kan be dig slå av huvudströmbrytaren som försiktighetsåtgärd medan vi är på väg." },
+    { title: "På plats inom 90 minuter", text: "Vi strävar efter att nå dig inom 90 minuter var du än befinner dig i serviceområdet." },
+    { title: "Diagnostik, åtgärd och säkerhetsverifiering", text: "Vi åtgärdar felet eller gör situationen säker. Vi lämnar inte förrän vi är säkra på att det inte finns någon risk." },
+  ]}
+  priceSignal="Akututryckning från 1 500 kr (inkluderar första timmes arbete). Allt pris bekräftat innan arbete påbörjas."
+  reviews={[
+    { name: "Sara M.", date: "Mars 2025", text: "Ringde klockan 20 för en automatsäkring som löste ut. Kom inom 45 minuter, hittade en trasig jordfelsbrytare och fixade allt till 21:30. Ärligt pris." },
+    { name: "Greger N.", date: "Januari 2025", text: "Fick brinnande lukt från ett vägguttag klockan 23. De kom ut, hittade en överlastning i kopplingsdosan och gjorde det säkert. Tryggt att få kompetent hjälp den tid på kvällen." },
+    { name: "Anna T.", date: "Februari 2025", text: "Hela huset tappade ström sent en lördag. De kom ut, spårade ett fel i centralen och fick oss igång igen inom två timmar." },
+  ]}
+  faqs={[
+    { q: "Svarar ni verkligen klockan 02 på natten?", a: "Ja. Jourlinjen kopplar direkt till en jourhavande behörig elektriker, inte röstbrevlåda eller callcenter." },
+    { q: "Vad räknas som ett elakutfall?", a: "Brinnande lukt, gnistande eller varma uttag, totalt strömavbrott, flimrande lampor utan tydlig orsak, eller vatten nära elanläggning. Tveka inte — ring." },
+    { q: "Är jourtariffen mycket högre?", a: "Det tillkommer en utryckningskostnad och kvälls-/nattarbete debiteras med ett tillägg. Vi meddelar priset innan vi börjar något arbete." },
+    { q: "Vad ska jag göra medan jag väntar?", a: "Slå av den berörda kretsen om du vet vilken. Vid brinnande lukt eller vatten nära el — slå av huvudströmbrytaren. Rör inte gnistande utrustning." },
+  ]}
+/>

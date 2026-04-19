@@ -1,0 +1,38 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { COMPANY } from '../../config';
+---
+<ServicePage
+  title="Kommersiella Eltjänster"
+  metaTitle={`Kommersiell Elektriker i ${COMPANY.city} | ${COMPANY.name}`}
+  metaDesc={`Kommersiella eltjänster i ${COMPANY.city}. Lokalanpassning, underhåll, serverrum, EV-flottaladdning. Behörig och försäkrad. Ring ${COMPANY.phone}.`}
+  slug="commercial-electrical"
+  problem={`Driftstopp kostar pengar. Kommersiella elproblem — utlösande automater, överlastade kretsar, trasiga switchboards — kräver en behörig elektriker som förstår pressen i att hålla en verksamhet igång. Vi arbetar utanför ordinarie öppettider när det behövs.`}
+  included={[
+    "Elinstallation vid kontors- och butiksanpassning",
+    "Installation av trefas",
+    "Uppgradering och reparation av elcentral",
+    "Nödbelysning och utrymningsbelysning",
+    "Data- och kommunikationskablage",
+    "EV-laddinstallation för fordonsflotta",
+    "Avtalsbaserat löpande underhåll",
+  ]}
+  steps={[
+    { title: "Platsbesök och kravanalys", text: "Vi besöker lokalen, bedömer behoven och diskuterar projektets omfattning och tidsplan." },
+    { title: "Detaljerad offert", text: "Du får en skriftlig offert med fullständig specifikation av material och arbete. Inga överraskningar." },
+    { title: "Installation anpassad till din verksamhet", text: "Vi arbetar runt dina öppettider — kvällar och helger tillgängliga för verksamhet i drift." },
+    { title: "Driftsättning och överlämning", text: "Vi testar alla system, upprättar nödvändig dokumentation och överlämnar med en fullständig uppdragsrapport." },
+  ]}
+  priceSignal="Kommersiella projekt offereras individuellt. Underhållsavtal tillgängliga. Kostnadsfritt platsbesök."
+  reviews={[
+    { name: "James R.", date: "December 2024", text: "Behövde ny elinstallation vid kontorsombyggnad. De jobbade över helgen för att inte störa vår verksamhet. Professionellt, städat och i tid." },
+    { name: "Paul D.", date: "Mars 2025", text: "Totalinstallation i ny butikslokal. Samordnade med vår byggentreprenör, klarade alla besiktningar och överlämnade enligt tidplan." },
+    { name: "Natasha W.", date: "Januari 2025", text: "Vi har nu ett underhållsavtal med dem. Responsiva, håller god dokumentation och transparenta priser. Vi skulle aldrig välja någon annan." },
+  ]}
+  faqs={[
+    { q: "Kan ni jobba utanför arbetstid för att undvika driftstopp?", a: "Ja. Vi arbetar regelbundet kvällar och helger för kommersiella kunder. Det inkluderas i offerten från start." },
+    { q: "Hanterar ni trefasinstallationer?", a: "Ja. Vi installerar och underhåller trefassystem för kommersiella och industriella fastigheter." },
+    { q: "Kan ni sätta upp ett underhållsavtal?", a: "Ja. Löpande underhållsavtal är tillgängliga med schemalagda besiktningar, prioriterad jourtjänst och fasta priser." },
+    { q: "Hanterar ni tillstånd och dokumentation?", a: "Ja. Vi sköter alla tillståndsansökningar, elinstallationsintyg och besiktningsbokning för kommersiella projekt." },
+  ]}
+/>

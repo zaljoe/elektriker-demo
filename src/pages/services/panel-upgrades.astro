@@ -1,0 +1,38 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { COMPANY } from '../../config';
+---
+<ServicePage
+  title="Centralbyte & Elreparationer"
+  metaTitle={`Centralbyte & Elreparationer i ${COMPANY.city} | ${COMPANY.name}`}
+  metaDesc={`Centralbyte och elreparationer i ${COMPANY.city}. Uppgradera din elcentral med behörig elektriker. Tillstånd och besiktning ingår. Ring ${COMPANY.phone}.`}
+  slug="panel-upgrades"
+  problem={`En gammal elcentral med säkringar är inte anpassad för moderna hem med EV-laddare, värmepumpar och smarta apparater. En överlastning eller föråldrad central är en brandrisk och godkänns inte vid besiktning. Vi byter central säkert, med tillstånd, på en dag.`}
+  included={[
+    "Byte från säkringar till automatsäkringar",
+    "Uppgradering till 3-fas för större fastigheter",
+    "Installation av undercentraler",
+    "Byte av enskilda automatsäkringar",
+    "Uppgradering med jordfelsbrytare och brandskyddsbrytare",
+    "Tillståndsansökan och besiktningsbokning",
+    "Samordning med nätbolaget vid behov",
+  ]}
+  steps={[
+    { title: "Bedömning och offert", text: "Vi granskar din befintliga central, diskuterar dina behov och ger dig en skriftlig offert." },
+    { title: "Tillstånd och planering", text: "Vi söker tillstånd och planerar arbetet efter ditt schema. De flesta centralbyten tar en dag." },
+    { title: "Installation samma dag", text: "Vi byter centralen, kopplar om alla kretsar och testar allt innan vi lämnar." },
+    { title: "Besiktning och godkännande", text: "Vi bokar och deltar vid besiktningen. Arbetet är avslutat först när det är godkänt." },
+  ]}
+  priceSignal="Centralbyte från 8 000 kr allt inkluderat (tillstånd, arbete, material). Kostnadsfri offert."
+  reviews={[
+    { name: "David K.", date: "Februari 2025", text: "Centralbyte klart på en dag. De skötte tillståndet, besiktningen och kontakten med nätbolaget. Jag behövde inte göra något alls." },
+    { name: "Mikael L.", date: "Mars 2025", text: "Hade en automatsäkring som löste ut hela tiden. De diagnostiserade en trasig säkring och bytte den samma dag. Ärliga och effektiva." },
+    { name: "Karin W.", date: "Januari 2025", text: "Behövde en undercentral till det nya garaget. De drog matarledningen, installerade centralen och fick allt godkänt vid besiktningen på två dagar." },
+  ]}
+  faqs={[
+    { q: "Hur lång tid tar ett centralbyte?", a: "De flesta byten tar en hel arbetsdag. Strömmen är frånkopplad i ungefär 4–6 timmar under själva bytet." },
+    { q: "Behövs tillstånd för centralbyte?", a: "Ja, alltid. Alla företag som erbjuder centralbyte utan tillstånd tar genvägar som påverkar din försäkring och framtida försäljning." },
+    { q: "Behöver nätbolaget kopplas in?", a: "Ibland. Om inkommande kabel behöver ändras samordnar vi med nätbolaget för din räkning." },
+    { q: "Kan jag vara hemma under bytet?", a: "Ja, men du saknar ström under en del av dagen. Vi försöker lägga de strömfria timmarna på förmiddagen." },
+  ]}
+/>

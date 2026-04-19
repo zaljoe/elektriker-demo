@@ -1,0 +1,38 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { COMPANY } from '../../config';
+---
+<ServicePage
+  title="Belysningsinstallation"
+  metaTitle={`Belysningsinstallation i ${COMPANY.city} — Inne & Ute | ${COMPANY.name}`}
+  metaDesc={`Professionell belysningsinstallation i ${COMPANY.city}. Downlights, pendlar, utebelysning och smart belysning. Behörig elektriker. Ring ${COMPANY.phone}.`}
+  slug="lighting-installation"
+  problem={`Dålig belysning gör varje rum sämre än det är. Bra belysning förändrar hur ett hem känns och fungerar. Oavsett om du uppgraderar till LED-downlights, lägger till säkerhetsbelysning utomhus eller kopplar in en ny taklampa — vi gör det rätt. Inget flimmer, inga lösa anslutningar.`}
+  included={[
+    "Infälld LED-belysning (downlights)",
+    "Pendel- och taklampeinstallation",
+    "Bänkbelysning och accentbelysning",
+    "Utomhus- och trädgårdsbelysning",
+    "Säkerhetsbelysning med rörelsesensor",
+    "Installation av dimrar",
+    "Smart belysning (Lutron, Philips Hue m.fl.)",
+  ]}
+  steps={[
+    { title: "Belysningskonsultation", text: "Vi diskuterar dina mål — stämning, funktion, säkerhet — och rekommenderar rätt armaturer och placering." },
+    { title: "Offert och tidsbokning", text: "Tydlig skriftlig offert. De flesta belysningsjobb är klara på en dag." },
+    { title: "Snyggt utförande", text: "Vi drar, kopplar och avslutar snyggt. Igenspackling ingår vid infällda installationer." },
+    { title: "Dimrar och smart setup", text: "Vi konfigurerar dimrar och smarta styrningar och ser till att allt kopplas rätt innan vi lämnar." },
+  ]}
+  priceSignal="Enkel armaturinstallation från 800 kr. Paket för downlights finns. Kostnadsfri offert för större projekt."
+  reviews={[
+    { name: "Susanne P.", date: "Mars 2025", text: "Fick downlights installerade i kök och vardagsrum. Förvandlade båda rummen totalt. Snyggt arbete och bra råd om placering." },
+    { name: "Benjamin O.", date: "Februari 2025", text: "Installerade utebelysning med rörelsesensor vid entrén. Snabbt och städat. Gav bra tips om optimal placering för täckning." },
+    { name: "Rebecka K.", date: "Januari 2025", text: "Kopplade in en ny pendel i matsalen. Den gamla elinstallationen var ett kaos — de sorterade upp det och monterade armaturen perfekt." },
+  ]}
+  faqs={[
+    { q: "Behöver jag elektriker för att byta en lampa?", a: "För byte av armatur i befintlig kopplingsdosa klarar en hemmafixare ofta av det. För nya kretsar, smart belysning eller utomhusarbete krävs behörig elektriker." },
+    { q: "Kan ni installera smart belysning?", a: "Ja. Vi arbetar med Lutron, Philips Hue och de flesta smarta system. Vi hanterar ledningsdragning, kopplingsdosor och app-inställning." },
+    { q: "Hur lång tid tar installation av downlights?", a: "Ett typiskt rum med 6–8 downlights tar ungefär en halvdag. Vi spackar igen alla öppningar i taket snyggt." },
+    { q: "Kan ni lägga till utebelysning på befintlig krets?", a: "Ibland, beroende på befintlig belastning. Vi bedömer först och ger råd — en ny krets utomhus är enkel om det behövs." },
+  ]}
+/>

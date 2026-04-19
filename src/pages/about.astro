@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { COMPANY } from '../config';
+
+const founderName = "Johan Martinsson";
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": founderName,
+  "jobTitle": "Elektriker & Grundare",
+  "worksFor": { "@type": "LocalBusiness", "name": COMPANY.name },
+  "telephone": COMPANY.phone,
+  "email": COMPANY.email
+});
+---
+<Layout
+  title={`Om ${COMPANY.name} — Licensierade elektriker i ${COMPANY.city}`}
+  description={`Möt Johan Martinsson och teamet bakom ${COMPANY.name}. ${COMPANY.years} år i ${COMPANY.city}. Licensierad mästerelektriker, fullt försäkrad, lokalt engagerade.`}
+  canonical="https://REPLACE-WITH-DOMAIN.com/about/"
+  jsonld={jsonld}
+>
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">Om oss</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section style="position:relative;background:var(--bg-dark);padding:5rem 0 4rem;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,41,55,0.97) 0%,rgba(31,41,55,0.85) 100%);" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;max-width:640px;text-align:center;">
+      <span class="section-label" style="margin-bottom:0.75rem;">Om oss</span>
+      <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:1rem;">Om {COMPANY.name}</h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,0.75);line-height:1.75;">{COMPANY.years} år av licensierat elarbete i {COMPANY.city} — byggt på att dyka upp, göra det rätt och stå bakom arbetet.</p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section" style="background:var(--bg-page);">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Photo placeholder -->
+        <div style="background:var(--bg-alt);border-radius:var(--radius-md);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);overflow:hidden;">
+          <img
+            src="/nihar-reddy-jangam-AmdiSUONPms-unsplash.jpg"
+            alt="Elektriker arbetar"
+            width="600" height="800"
+            loading="lazy"
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;"
+          />
+        </div>
+        <div>
+          <span class="section-label">Vår historia</span>
+          <h2 class="section-title">Grundat och verksamt i {COMPANY.city}</h2>
+          <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;margin-bottom:1.25rem;">
+            JM EL grundades av Johan Martinsson, en licensierad elektriker som växte upp i Göteborg. Efter flera år hos större entreprenadfirmor i regionen startade Johan bolaget med en enkel idé: behandla varje kunds hem som ditt eget och sätt alltid ett ärligt pris.
+          </p>
+          <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;margin-bottom:1.25rem;">
+            {COMPANY.years} år senare har vi genomfört över {COMPANY.jobs} uppdrag i Göteborg och hela Västra Götaland. Teamet har vuxit, men tillvägagångssättet är detsamma — licensierade elektriker, tydliga offerter och arbete du kan lita på.
+          </p>
+          <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;">
+            Vi är lokalinvånare. Vi känner till Göteborgs stadsdelar, nätbolaget Göteborg Energis rutiner och de lokala bygglovsprocesserna. Det sparar tid — för dig och för oss.
+          </p>
+
+          <!-- Stats row -->
+          <div style="display:flex;flex-wrap:wrap;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);">
+            {[
+              { num: `${COMPANY.years}`, label: "År i branschen" },
+              { num: `${COMPANY.jobs}+`, label: "Avklarade uppdrag" },
+              { num: COMPANY.rating + " ★", label: "Google-betyg" },
+            ].map(s => (
+              <div>
+                <div style="font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--brand);">{s.num}</div>
+                <div style="font-size:0.78rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder bio -->
+  <section class="section" style="background:var(--bg-alt);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">Grundaren</span>
+        <h2 class="section-title">Johan Martinsson</h2>
+      </div>
+      <div class="bio-grid" style="max-width:820px;margin:0 auto;">
+        <div style="background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;aspect-ratio:1;">
+          <img
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=70&fm=webp"
+            alt="Johan Martinsson — grundare JM EL"
+            width="500" height="500"
+            loading="lazy"
+            style="width:100%;height:100%;object-fit:cover;object-position:top;"
+          />
+        </div>
+        <div>
+          <h3 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.25rem;">{founderName}</h3>
+          <p style="font-size:0.875rem;font-weight:600;color:var(--brand);margin-bottom:1.25rem;">Elektriker &amp; Grundare · {COMPANY.name}</p>
+          <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;margin-bottom:1.5rem;">
+            Johan är elektriker — det är vad han är och det han gör varje dag. Han gick sin lärlingsutbildning i Göteborg, jobbade några år hos andra firmor och startade sedan JM EL 2005 för att kunna göra jobbet på sitt eget sätt: ordentligt, ärligt och utan krångel. Fortfarande ute på uppdrag, fortfarande den som svarar när du ringer.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.65rem;">
+            {[
+              "Behörig elinstallatör — auktoriserad av Elsäkerhetsverket",
+              "Fullt försäkrad — ansvars- & yrkesförsäkring",
+              "Certifierad laddinfrastruktur (EV-laddare)",
+              "Brandskyddskontroll & besiktning",
+            ].map(c => (
+              <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;color:var(--text-main);">
+                <div style="width:18px;height:18px;border-radius:50%;background:rgba(119,169,237,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="9" height="9" fill="none" stroke="var(--brand)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                {c}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="section" style="background:var(--bg-page);">
+    <div class="container">
+      <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
+        <span class="section-label">Våra värderingar</span>
+        <h2 class="section-title">Det här är vi stolta över</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;">
+        {[
+          { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Alltid licensierat", text: "Allt arbete utförs av behöriga elinstallatörer. Aldrig genvägar, aldrig svart." },
+          { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "Fast pris", text: "Du får en skriftlig offert innan vi börjar. Det priset gäller — inga pålägg i efterhand." },
+          { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", title: "Svarar samma dag", text: "Vi strävar efter att ha en elektriker hos dig inom 4 timmar på akuta ärenden i Göteborg." },
+          { icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", title: "2 års garanti", text: "Alla jobb täcks av 2 års garantiarbete. Går något sönder åtgärdar vi det utan kostnad." },
+        ].map(v => (
+          <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem;">
+            <div style="width:40px;height:40px;background:rgba(119,169,237,0.08);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+              <svg width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={v.icon}/></svg>
+            </div>
+            <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;">{v.title}</h3>
+            <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm" style="background:var(--bg-dark);">
+    <div class="container" style="max-width:540px;text-align:center;">
+      <h2 style="font-size:clamp(1.5rem,4vw,2rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:0.75rem;">Vill du jobba med oss?</h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.7;margin-bottom:1.75rem;">Begär en offert idag. Vi svarar inom 2 timmar på vardagar.</p>
+      <a href="/contact/" class="btn btn-primary" style="gap:0.5rem;">
+        Kontakta oss
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .about-grid { display: grid; gap: 4rem; align-items: center; grid-template-columns: 1fr; }
+    .bio-grid   { display: grid; gap: 3rem; align-items: start; grid-template-columns: 1fr; }
+    @media(min-width:768px){
+      .about-grid { grid-template-columns: 0.7fr 1fr; }
+      .bio-grid   { grid-template-columns: 0.5fr 1fr; }
+    }
+  </style>
+</Layout>

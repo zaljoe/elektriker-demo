@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { COMPANY } from '../config';
+
+interface Props {
+  title: string;
+  metaTitle: string;
+  metaDesc: string;
+  slug: string;
+  problem: string;
+  included: string[];
+  steps: { title: string; text: string }[];
+  priceSignal: string;
+  reviews: { name: string; date: string; text: string }[];
+  faqs: { q: string; a: string }[];
+  jsonld?: string;
+}
+const { title, metaTitle, metaDesc, slug, problem, included, steps, priceSignal, reviews, faqs, jsonld } = Astro.props;
+---
+<Layout title={metaTitle} description={metaDesc} canonical={`https://REPLACE-WITH-DOMAIN.com/services/${slug}/`} jsonld={jsonld}>
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <a href="/services/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Tjänster</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">{title}</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section style="position:relative;background:var(--bg-dark);overflow:hidden;padding:5rem 0 4rem;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,41,55,0.97) 0%,rgba(31,41,55,0.88) 100%);" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;max-width:720px;">
+      <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(119,169,237,0.15);border:1px solid rgba(119,169,237,0.3);border-radius:2px;padding:0.3rem 0.8rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#77A9ED;">{COMPANY.city} &amp; Omnejd</span>
+      </div>
+      <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.1rem;">{title} i {COMPANY.city}</h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,0.75);line-height:1.75;max-width:580px;margin-bottom:2rem;">{problem}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.85rem;">
+        <a href="/contact/" class="btn btn-primary" style="gap:0.5rem;">
+          Begär gratis offert
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href={COMPANY.phoneTel} class="btn btn-outline" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.05);gap:0.5rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Ring {COMPANY.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included + Process -->
+  <section class="section" style="background:var(--bg-page);">
+    <div class="container">
+      <div class="svc-grid">
+
+        <!-- Included -->
+        <div>
+          <span class="section-label">Vad ingår</span>
+          <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:1.5rem;">Vad ingår i tjänsten</h2>
+          <ul style="display:flex;flex-direction:column;gap:0.85rem;margin-bottom:2rem;">
+            {included.map(item => (
+              <li style="display:flex;align-items:flex-start;gap:0.85rem;">
+                <div style="width:20px;height:20px;border-radius:50%;background:rgba(119,169,237,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+                  <svg width="10" height="10" fill="none" stroke="var(--brand)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span style="font-size:0.95rem;color:var(--text-main);line-height:1.65;">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Price signal -->
+          <div style="padding:1.1rem 1.4rem;background:rgba(22,163,74,0.06);border:1px solid rgba(22,163,74,0.25);border-radius:var(--radius-sm);border-left:3px solid #16a34a;">
+            <p style="font-size:0.9rem;font-weight:600;color:#16a34a;">
+              <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="display:inline;vertical-align:middle;margin-right:0.35rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              {priceSignal}
+            </p>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div>
+          <span class="section-label">Hur det går till</span>
+          <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:1.5rem;">Så här arbetar vi</h2>
+          <div style="display:flex;flex-direction:column;gap:1.5rem;">
+            {steps.map((step, i) => (
+              <div style="display:flex;gap:1.25rem;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;color:#fff;flex-shrink:0;">{i + 1}</div>
+                <div>
+                  <h3 style="font-size:0.95rem;font-weight:700;color:var(--text-main);margin-bottom:0.3rem;">{step.title}</h3>
+                  <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;">{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background:var(--bg-dark);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);display:block;margin-bottom:0.5rem;">Kundrecensioner</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#fff;letter-spacing:-0.02em;">Vad kunderna säger om den här tjänsten</h2>
+      </div>
+      <div class="reviews-grid">
+        {reviews.map(r => (
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:1.75rem;display:flex;flex-direction:column;">
+            <div style="font-size:0.85rem;color:#FBBF24;letter-spacing:0.05em;margin-bottom:1rem;">★★★★★</div>
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.75;flex-grow:1;margin-bottom:1.5rem;">"{r.text}"</p>
+            <div style="display:flex;align-items:center;gap:0.75rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:1rem;">
+              <div style="width:34px;height:34px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.8rem;flex-shrink:0;">{r.name[0]}</div>
+              <div>
+                <p style="font-size:0.85rem;font-weight:700;color:#fff;">{r.name}</p>
+                <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);">{r.date} · Google Recension</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--bg-page);">
+    <div class="container" style="max-width:720px;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span class="section-label">Vanliga frågor</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-0.02em;">Ofta ställda frågor</h2>
+      </div>
+      <div>
+        {faqs.map((faq, i) => (
+          <details style={`border-top:1px solid var(--border);${i === faqs.length - 1 ? 'border-bottom:1px solid var(--border);' : ''}`}>
+            <summary style="display:flex;align-items:center;justify-content:space-between;padding:1.2rem 0;cursor:pointer;list-style:none;font-weight:700;font-size:0.95rem;color:var(--text-main);" class="faq-summary">
+              {faq.q}
+              <span style="font-size:1.2rem;font-weight:300;color:var(--brand);flex-shrink:0;margin-left:1rem;">+</span>
+            </summary>
+            <div style="padding-bottom:1.2rem;color:var(--text-muted);font-size:0.875rem;line-height:1.8;">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--bg-alt);">
+    <div class="container" style="max-width:580px;text-align:center;">
+      <div style="background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-card);padding:2.75rem 2.25rem;">
+        <h2 style="font-size:clamp(1.5rem,4vw,2rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.75rem;">Begär offert för {title}</h2>
+        <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.75rem;">Ingen bindningstid. Vi svarar inom 2 timmar på vardagar.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.85rem;justify-content:center;">
+          <a href="/contact/" class="btn btn-primary" style="gap:0.5rem;">
+            Gratis offert
+            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href={COMPANY.phoneTel} class="btn btn-outline" style="gap:0.5rem;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Ring {COMPANY.phone}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .svc-grid { display: grid; gap: 3.5rem; grid-template-columns: 1fr; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    @media(min-width:900px){ .svc-grid { grid-template-columns: 1fr 1fr; } }
+    .faq-summary::-webkit-details-marker { display: none; }
+    details[open] .faq-summary span:last-child { transform: rotate(45deg); display: inline-block; }
+  </style>
+</Layout>

@@ -1,0 +1,38 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { COMPANY } from '../../config';
+---
+<ServicePage
+  title="Elinstallation & Ominstallation"
+  metaTitle={`Elinstallation & Ominstallation i ${COMPANY.city} | ${COMPANY.name}`}
+  metaDesc={`Säker, regelsäker elinstallation och ominstallation i ${COMPANY.city}. Tydliga priser, behörig elektriker. Ring ${COMPANY.phone}.`}
+  slug="residential-wiring"
+  problem={`Gammal eller felaktig elinstallation är en av de vanligaste orsakerna till husbränder i ${COMPANY.city}. Oavsett om du renoverar, behöver fler kretsar eller upplever flimrande lampor och utlösta säkringar — vi hittar grundorsaken och åtgärdar den.`}
+  included={[
+    "Fullständig eldiagnos och felsökning",
+    "Installation av nya kretsar och förlängning av befintliga",
+    "Partiell eller fullständig ominstallation av huset",
+    "Regelsäkert arbete med besiktningsprotokoll",
+    "Uppgradering av jordfelsbrytare och brandskyddsbrytare",
+    "Installation av brandvarnare",
+    "Åtgärd av aluminiumledningar",
+  ]}
+  steps={[
+    { title: "Kostnadsfri platsbesiktning", text: "Vi besöker ditt hem, granskar befintlig installation och identifierar eventuella fel eller avvikelser." },
+    { title: "Skriftlig offert", text: "Du får en tydlig offert som täcker allt material och arbete. Inga dolda kostnader." },
+    { title: "Behörig installation", text: "Allt arbete utförs av behöriga elektriker enligt gällande regler. Vi håller rent och städar efter oss." },
+    { title: "Besiktning och protokoll", text: "Vi bokar eventuell besiktning och hanterar all dokumentation åt dig." },
+  ]}
+  priceSignal="Elreparationer från 1 500 kr. Ominstallationer offerteras individuellt. Kostnadsfri hembesiktning."
+  reviews={[
+    { name: "Karin B.", date: "April 2025", text: "De installerade om halva huset under vår renovering. Dök upp varje dag i tid, kommunicerade tydligt och godkändes vid besiktningen på första försöket." },
+    { name: "Tom H.", date: "Februari 2025", text: "Hade flimrande lampor i månader. Annat företag hittade inget fel. Dessa hittade det på 20 minuter — lös anslutning i kopplingsdosan. Fixat samma dag." },
+    { name: "Linda S.", date: "Januari 2025", text: "Lät dem uppgradera alla uttag med jordfelsbrytare i vårt äldre hus. Snabbt, städat arbete och de förklarade allt längs vägen." },
+  ]}
+  faqs={[
+    { q: "Hur vet jag om mitt hus behöver ominstalleras?", a: "Tecken inkluderar flimrande lampor, ofta utlösta säkringar, brännlukt, missfärgade uttag eller ett hus byggt före 1980 som inte uppdaterats. Vi bedömer och ger råd." },
+    { q: "Måste jag flytta ut under ominstallationen?", a: "Vid partiella ominstallationer vanligtvis inte. Vid fullständiga behöver vi normalt 1–3 dagars tillgång. Vi jobbar rum för rum för att minimera störningarna." },
+    { q: "Hanterar ni tillstånd och besiktningar?", a: "Ja. Vi söker tillstånd, utför arbetet och bokar besiktning. Du behöver inte hantera något av det." },
+    { q: "Är en ominstallation värd kostnaden i ett äldre hus?", a: "Nästan alltid. Gamla ledningar är en brand- och försäkringsrisk. Det förenklar också framtida renoveringar avsevärt." },
+  ]}
+/>

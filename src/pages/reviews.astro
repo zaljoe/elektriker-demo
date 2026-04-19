@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { COMPANY } from '../config';
+
+const reviews = [
+  { name: "Sara M.",    date: "Mars 2025",     rating: 5, service: "Akutreparation",      text: "Ringde klockan 20 för en utlöst jordfelsbrytare. Var på plats inom 45 minuter, hittade felet och hade allt klart till 21:30. Ärlrigt pris, ingen jourtillägg." },
+  { name: "David K.",   date: "Februari 2025", rating: 5, service: "Panelbyte",           text: "Byte från 100A till 200A klart på en dag. De skötte tillstånd, besiktning och nätkoordinering. Priset stämde exakt med offerten — inte en krona mer." },
+  { name: "Maria T.",   date: "Januari 2025",  rating: 5, service: "EV-laddare",          text: "Level 2-laddare installerad på en halvdag, allt enligt regler. Teknikern gick igenom allt som gjorts och svarade på varje fråga." },
+  { name: "James R.",   date: "December 2024", rating: 5, service: "Kommersiell el",      text: "Kopplade om vårt kontor under en helg. Professionella, städade upp efter sig och klart i tid. Störde inte verksamheten alls." },
+  { name: "Karin B.",   date: "April 2025",    rating: 5, service: "Ominstallation",      text: "Ominstallerades halva huset under renoveringen. Dök upp varje dag, kommunicerade tydligt och godkändes vid besiktningen första gången." },
+  { name: "Göran N.",   date: "Januari 2025",  rating: 5, service: "Akutreparation",      text: "Brännlukt från ett vägguttag klockan 23. De kom ut, hittade en överhettad kopplingsdosa och säkrade allt. Mycket betryggande." },
+  { name: "Susan P.",   date: "Mars 2025",     rating: 5, service: "Belysning",           text: "Inbyggd belysning i kök och vardagsrum. Transformerade båda rummen totalt. Bra råd om placering." },
+  { name: "Tom H.",     date: "Februari 2025", rating: 5, service: "Felsökning",          text: "Flimrande lampor i månader. Annat företag hittade inget. Dessa hittade felet på 20 minuter — lös anslutning i kopplingsdosan." },
+  { name: "Carol W.",   date: "Januari 2025",  rating: 5, service: "Undercentralsarbete", text: "Ny undercentral för garage. Matningsledning, central installerad och godkänd på två dagar. Nöjdare kan man inte bli." },
+];
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": COMPANY.name,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": COMPANY.rating,
+    "reviewCount": reviews.length.toString()
+  },
+  "review": reviews.map(r => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": r.name },
+    "reviewRating": { "@type": "Rating", "ratingValue": r.rating },
+    "reviewBody": r.text,
+    "datePublished": "2025"
+  }))
+});
+---
+<Layout
+  title={`Recensioner — ${COMPANY.rating}★ Google-betyg | ${COMPANY.name}`}
+  description={`Läs verifierade recensioner om ${COMPANY.name} i ${COMPANY.city}. ${COMPANY.rating} stjärnor av ${COMPANY.reviewCount} Google-recensioner.`}
+  canonical="https://REPLACE-WITH-DOMAIN.com/reviews/"
+  jsonld={jsonld}
+>
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">Recensioner</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section style="position:relative;background:var(--bg-dark);padding:5rem 0 4rem;overflow:hidden;text-align:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,41,55,0.97) 0%,rgba(31,41,55,0.85) 100%);" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;max-width:580px;">
+      <span class="section-label" style="margin-bottom:0.75rem;">Vad kunderna säger</span>
+      <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:0.75rem;">Vad våra kunder säger</h1>
+      <div style="font-size:1.75rem;color:#FBBF24;letter-spacing:0.05em;margin-bottom:0.75rem;">★★★★★</div>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.8);font-weight:700;">{COMPANY.rating} av 5 · {COMPANY.reviewCount} Google-recensioner</p>
+    </div>
+  </section>
+
+  <!-- Google Reviews widget -->
+  <section style="background:var(--bg-alt);padding:2.5rem 0;border-bottom:1px solid var(--border);">
+    <div class="container" style="max-width:760px;text-align:center;">
+      <img
+        src="/recensioner.png"
+        alt="4.9 av 5 — 148 Google-recensioner"
+        style="max-width:420px;width:100%;border-radius:1.25rem;box-shadow:var(--shadow-card);display:block;margin:0 auto;"
+      />
+    </div>
+  </section>
+
+  <!-- Written reviews -->
+  <section class="section" style="background:var(--bg-page);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span class="section-label">Verifierade omdömen</span>
+        <h2 class="section-title">Verifierade kundrecensioner</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;">
+        {reviews.map(r => (
+          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem;display:flex;flex-direction:column;transition:box-shadow .2s;" onmouseenter="this.style.boxShadow='var(--shadow-card)'" onmouseleave="this.style.boxShadow=''">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+              <div style="font-size:0.85rem;color:#FBBF24;letter-spacing:0.05em;">★★★★★</div>
+              <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);background:rgba(119,169,237,0.08);padding:0.2rem 0.6rem;border-radius:2px;">{r.service}</span>
+            </div>
+            <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.75;flex-grow:1;margin-bottom:1.25rem;">"{r.text}"</p>
+            <div style="display:flex;align-items:center;gap:0.75rem;border-top:1px solid var(--border);padding-top:1rem;">
+              <div style="width:34px;height:34px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.8rem;flex-shrink:0;">{r.name[0]}</div>
+              <div>
+                <p style="font-size:0.85rem;font-weight:700;color:var(--text-main);">{r.name}</p>
+                <p style="font-size:0.72rem;color:var(--text-light);">{r.date} · Google Recension</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--bg-alt);">
+    <div class="container" style="max-width:580px;text-align:center;">
+      <div style="background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-card);padding:3rem 2.5rem;">
+        <h2 class="section-title">Redo att bli vår nästa nöjda kund?</h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:1.75rem;">Begär en gratis offert idag. Licensierade, försäkrade och backade av {COMPANY.reviewCount}+ femstjärniga recensioner.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.85rem;justify-content:center;">
+          <a href="/contact/" class="btn btn-primary" style="gap:0.5rem;">
+            Begär gratis offert
+            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href={COMPANY.phoneTel} class="btn btn-outline" style="gap:0.5rem;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Ring {COMPANY.phone}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

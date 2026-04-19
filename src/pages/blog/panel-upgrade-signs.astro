@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { COMPANY } from '../../config';
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hur vet du när du behöver byta elcentral?",
+  "author": { "@type": "Organization", "name": COMPANY.name },
+  "publisher": { "@type": "Organization", "name": COMPANY.name },
+  "datePublished": "2025-04-01",
+  "dateModified": "2025-04-01"
+});
+---
+<Layout
+  title={`Hur vet du när du behöver byta elcentral? | ${COMPANY.name}`}
+  description="Flimrande lampor, utlösta säkringar och en gammal central är varningstecken du inte kan ignorera. En licensierad elektriker förklarar vad du ska titta efter."
+  canonical="https://REPLACE-WITH-DOMAIN.com/blog/panel-upgrade-signs/"
+  jsonld={jsonld}
+>
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <a href="/blog/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Blogg</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">Byta elcentral</span>
+    </div>
+  </div>
+
+  <article style="max-width:720px;margin:0 auto;padding:4rem 1.5rem 5rem;">
+    <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);">April 2025 · {COMPANY.name}</span>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;color:var(--text-main);margin:0.75rem 0 1.25rem;line-height:1.1;">Hur vet du när du behöver byta elcentral?</h1>
+    <p style="font-size:1.1rem;color:var(--text-muted);line-height:1.8;margin-bottom:2.5rem;border-left:3px solid var(--brand);padding-left:1.25rem;">De flesta elcentraler är designade för att hålla 25–40 år. Men med EV-laddare, värmepumpar och smarta apparater drar dagens hem långt mer ström än när dessa centraler installerades.</p>
+
+    <div style="font-size:1.05rem;color:var(--text-muted);line-height:1.85;">
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">1. Säkringar som löser ut ofta</h2>
+      <p style="margin-bottom:1.5rem;">En enstaka utlöst säkring är normalt. Om du återställer samma säkring flera gånger i veckan — särskilt på kretsar som inte förändrats — kan centralen vara underdimensionerad för din nuvarande last, eller så är säkringen utsliten.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">2. Flimrande eller dimmande lampor</h2>
+      <p style="margin-bottom:1.5rem;">När lampor dimmas när diskmaskinen startar eller torktumlaren kickar igång innebär det vanligtvis att centralen kämpar för att fördela ström jämnt. Det är också ett tecken på att stora apparater och belysning delar kretsar som borde vara separata.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">3. Centralen är över 25 år gammal</h2>
+      <p style="margin-bottom:1.5rem;">Ålder ensamt är inte ett skäl att byta, men det är ett skäl att besikta. Äldre centraler — särskilt vissa märken kända för defekter — kan ha säkringar som inte löser ut vid felkonditioner. Det är en brandrisk.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">4. Du lägger till effektkrävande apparater</h2>
+      <p style="margin-bottom:1.5rem;">EV-laddare, bubbelpool, elspis och värmepumpar kräver var och en separata kretsar vid hög ampere. Om din central redan är vid kapacitetsgränsen är det farligt att lägga till någon av dessa utan en uppgradering — inte bara opraktiskt.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">5. Du ska sälja eller refinansiera</h2>
+      <p style="margin-bottom:1.5rem;">Besiktningsmän flaggar föråldrade centraler. Försäkringsbolag vägrar i allt högre grad täcka hem med vissa centralmärken. Om du planerar att sälja eller refinansiera undviker en uppgradering nu ett sista-minuten-tvångsjobb till ett sämre pris.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">Vad du ska göra härnäst</h2>
+      <p style="margin-bottom:1.5rem;">En licensierad elektriker kan bedöma din central på ungefär en timme och berätta om en uppgradering är brådskande, lämplig eller onödig. Vänta inte på ett haveri — centraler ger inte mycket varning innan de blir ett problem.</p>
+    </div>
+
+    <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem 2rem;margin-top:3rem;">
+      <h3 style="font-size:1.05rem;font-weight:800;color:var(--text-main);margin-bottom:0.5rem;">Behöver du centralbesiktning i {COMPANY.city}?</h3>
+      <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.25rem;">Vi erbjuder kostnadsfri centralbesiktning på plats. Licensierad, tydliga priser, ingen onödig merförsäljning.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.85rem;">
+        <a href="/contact/" class="btn btn-primary">Boka gratis besiktning →</a>
+        <a href={COMPANY.phoneTel} class="btn btn-outline">Ring {COMPANY.phone}</a>
+      </div>
+    </div>
+  </article>
+</Layout>

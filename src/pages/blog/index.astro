@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { COMPANY } from '../../config';
+
+const posts = [
+  { slug: "panel-upgrade-signs", title: "Hur vet du när du behöver byta elcentral?", excerpt: "Flimrande lampor, utlösta säkringar och en central som är 30 år gammal är tecken du inte kan ignorera. Här är vad du ska titta efter — och vad som händer om du väntar.", date: "April 2025" },
+  { slug: "ev-charger-cost", title: `Vad kostar en EV-laddare i ${COMPANY.city}? (2025)`, excerpt: "Vad kostar det egentligen att installera en Level 2-laddare hemma? Vi bryter ner varje variabel — panelkapacitet, avstånd, tillstånd — så att inga överraskningar uppstår.", date: "Mars 2025" },
+  { slug: "faulty-wiring-signs", title: "Tecken på felaktig elinstallation i äldre hus", excerpt: "Hus byggda före 1980 har ofta el som aldrig var designad för moderna ellaster. Detta är varningstecknen varje husägare bör känna till.", date: "Mars 2025" },
+];
+---
+<Layout
+  title={`Eltips & guider — ${COMPANY.city} | ${COMPANY.name}`}
+  description={`Praktiska elguider för husägare i ${COMPANY.city}. Panelbyten, EV-laddare, installationer — skrivna av licensierade elektriker.`}
+  canonical="https://REPLACE-WITH-DOMAIN.com/blog/"
+>
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">Blogg</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section style="position:relative;background:var(--bg-dark);padding:5rem 0 4rem;overflow:hidden;text-align:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,41,55,0.97) 0%,rgba(31,41,55,0.85) 100%);" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;max-width:640px;">
+      <span class="section-label" style="margin-bottom:0.75rem;">Kunskapsbank</span>
+      <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:1rem;">Eltips &amp; guider</h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,0.75);">Praktiska råd från licensierade elektriker i {COMPANY.city}.</p>
+    </div>
+  </section>
+
+  <!-- Posts -->
+  <section class="section" style="background:var(--bg-page);">
+    <div class="container" style="max-width:820px;">
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}/`} style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:2rem;text-decoration:none;transition:box-shadow .2s,border-color .2s;position:relative;overflow:hidden;" onmouseenter="this.style.boxShadow='var(--shadow-card)';this.style.borderColor='rgba(119,169,237,0.3)'" onmouseleave="this.style.boxShadow='';this.style.borderColor='var(--border)'">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--brand);transform:scaleY(0);transition:transform .2s;transform-origin:bottom;" class="post-border"></div>
+            <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);">{post.date}</span>
+            <h2 style="font-size:clamp(1.15rem,2.5vw,1.4rem);font-weight:800;letter-spacing:-0.02em;color:var(--text-main);margin:0.5rem 0 0.75rem;">{post.title}</h2>
+            <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:1rem;">{post.excerpt}</p>
+            <span style="font-size:0.8rem;font-weight:700;color:var(--brand);">Läs artikel →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm" style="background:var(--bg-alt);">
+    <div class="container" style="max-width:540px;text-align:center;">
+      <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem;">Behöver du hjälp med ett specifikt elproblem?</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:1.5rem;">Vi svarar på frågor och ger kostnadsfria offerter.</p>
+      <a href="/contact/" class="btn btn-primary" style="gap:0.5rem;">
+        Kontakta oss
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

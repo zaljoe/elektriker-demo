@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { COMPANY } from '../../config';
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": `Vad kostar en EV-laddare i ${COMPANY.city}?`,
+  "author": { "@type": "Organization", "name": COMPANY.name },
+  "publisher": { "@type": "Organization", "name": COMPANY.name },
+  "datePublished": "2025-03-15",
+  "dateModified": "2025-03-15"
+});
+---
+<Layout
+  title={`Vad kostar en EV-laddare i ${COMPANY.city}? (Guide 2025) | ${COMPANY.name}`}
+  description={`Vad kostar installation av en Level 2-laddare i ${COMPANY.city}? En licensierad elektriker bryter ner varje faktor — central, avstånd, tillstånd och laddarvarumärke.`}
+  canonical="https://REPLACE-WITH-DOMAIN.com/blog/ev-charger-cost/"
+  jsonld={jsonld}
+>
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
+    <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <span style="color:var(--text-light);">›</span>
+      <a href="/blog/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Blogg</a>
+      <span style="color:var(--text-light);">›</span>
+      <span style="color:var(--brand);font-weight:600;">EV-laddare kostnad</span>
+    </div>
+  </div>
+
+  <article style="max-width:720px;margin:0 auto;padding:4rem 1.5rem 5rem;">
+    <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);">Mars 2025 · {COMPANY.name}</span>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;color:var(--text-main);margin:0.75rem 0 1.25rem;line-height:1.1;">Vad kostar en EV-laddare i {COMPANY.city}?</h1>
+    <p style="font-size:1.1rem;color:var(--text-muted);line-height:1.8;margin-bottom:2.5rem;border-left:3px solid var(--brand);padding-left:1.25rem;">En Level 2-laddare kostar typiskt 7 000–15 000 kr i {COMPANY.city}. Här är exakt vad som driver det intervallet — och hur du undviker att betala för mycket.</p>
+
+    <div style="font-size:1.05rem;color:var(--text-muted);line-height:1.85;">
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">Vad ingår i priset</h2>
+      <p style="margin-bottom:1rem;">En standard EV-laddningsinstallation inkluderar:</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
+        {["En dedikerad 230V, 32A krets från elcentralen", "Kabelrör till laddningsplatsen (garage eller carport)", "Väggmontering av EVSE-enheten", "Säkringsinstallation i elcentralen", "Tillståndssökning och besiktning"].map(item => (
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <div style="width:18px;height:18px;border-radius:50%;background:rgba(119,169,237,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.15rem;">
+              <svg width="9" height="9" fill="none" stroke="var(--brand)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">Vad påverkar priset</h2>
+      <p style="margin-bottom:1rem;"><strong style="color:var(--text-main);">Centralkapacitet:</strong> Om din central är vid eller nära kapacitetsgränsen kan du behöva uppgradera innan du lägger till en 32A-krets. Det lägger till 18 000–30 000 kr men är ofta nödvändigt.</p>
+      <p style="margin-bottom:1rem;"><strong style="color:var(--text-main);">Avstånd från central till laddare:</strong> En kort dragning i ett anslutet garage är enkelt. Ett fristående garage eller utomhusinstallation kräver mer kabelrör och arbetstid.</p>
+      <p style="margin-bottom:1rem;"><strong style="color:var(--text-main);">Laddarvarumärke och spec:</strong> En enkel 16A EVSE kostar 2 500–4 000 kr. En smart 32A-laddare (Tesla Wall Connector, Easee One) kostar 5 000–8 000 kr. Vi kan tillhandahålla eller installera din befintliga.</p>
+      <p style="margin-bottom:1.5rem;"><strong style="color:var(--text-main);">Tillståndsavgifter:</strong> Varierar per kommun men lägger typiskt till 800–1 500 kr. Alltid obligatoriskt. Icke-tillståndsgivet arbete skapar problem när du säljer.</p>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">Typisk total kostnadsöversikt</h2>
+      <div style="border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:1.5rem;">
+        {[
+          ["Enkel installation (anslutet garage, kapacitet finns)", "7 000–9 000 kr"],
+          ["Standard med smart laddare", "10 000–13 000 kr"],
+          ["Fristående garage eller lång kabelrörsdragning", "12 000–16 000 kr"],
+          ["Kräver centraluppgradering också", "25 000–45 000 kr"],
+        ].map(([scenario, price]) => (
+          <div style="display:flex;justify-content:space-between;padding:0.85rem 1.1rem;border-bottom:1px solid var(--border);font-size:0.875rem;">
+            <span style="color:var(--text-muted);">{scenario}</span>
+            <span style="font-weight:800;color:var(--brand);white-space:nowrap;margin-left:1rem;">{price}</span>
+          </div>
+        ))}
+      </div>
+
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin:2rem 0 0.75rem;">Kan jag installera det själv?</h2>
+      <p style="margin-bottom:1.5rem;">Nej. En 230V dedikerad krets kräver en licensierad elektriker och tillstånd i {COMPANY.region}. DIY 230V-arbete är olagligt, ogiltigförklarar din hemförsäkring och skapar en verklig brand- och säkerhetsrisk. Gör det inte.</p>
+    </div>
+
+    <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem 2rem;margin-top:3rem;">
+      <h3 style="font-size:1.05rem;font-weight:800;color:var(--text-main);margin-bottom:0.5rem;">Få en fast offert på EV-laddare i {COMPANY.city}</h3>
+      <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.25rem;">Vi bedömer din central, ger ett tydligt pris och installerar på en halvdag. Inga överraskningar.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.85rem;">
+        <a href="/contact/" class="btn btn-primary">Begär gratis offert →</a>
+        <a href="/services/ev-charger-installation/" class="btn btn-outline">EV-laddartjänst →</a>
+      </div>
+    </div>
+  </article>
+</Layout>
