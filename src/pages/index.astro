@@ -305,17 +305,14 @@ const faqs = [
         Visa hela serviceområdet
         <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
-      <div style="margin-top:2rem;border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--border);height:340px;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86191.23!2d11.97456!3d57.70716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464f8ce1a6b0b0a3%3A0x8bc6de7d3e7ca2c!2sG%C3%B6teborg!5e0!3m2!1ssv!2sse!4v1700000000000"
-          width="100%"
-          height="340"
-          style="border:0;display:block;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Serviceområde Göteborg"
-        ></iframe>
+      <div id="map-wrapper" style="margin-top:2rem;border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--border);height:340px;position:relative;cursor:pointer;background:var(--bg-alt);" onclick="loadMap(this)">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Göteborg,Sweden&zoom=10&size=800x340&maptype=roadmap&style=feature:all|element:labels.icon|visibility:off&key=" alt="Karta över Göteborg serviceområde" width="800" height="340" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(31,41,55,0.45);">
+          <div style="background:#fff;border-radius:var(--radius-md);padding:0.75rem 1.4rem;display:flex;align-items:center;gap:0.6rem;font-size:0.875rem;font-weight:700;color:var(--text-main);box-shadow:var(--shadow-card);">
+            <svg width="16" height="16" fill="none" stroke="var(--brand)" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Klicka för att öppna kartan
+          </div>
+        </div>
       </div>
     </div>
   </section>

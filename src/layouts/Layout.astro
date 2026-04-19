@@ -29,6 +29,7 @@ const url = canonical ?? Astro.url.href;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/image.jpg" as="image" fetchpriority="high" />
 
   <style is:global>
     :root {
@@ -336,5 +337,6 @@ const url = canonical ?? Astro.url.href;
     }
   </script>
   <script src="/js/accordion.js" defer></script>
+  <script src="/js/maps.js" defer></script>
 </body>
 </html>
