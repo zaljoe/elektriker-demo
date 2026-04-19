@@ -2,6 +2,7 @@
 // @ts-nocheck
 import Layout from '../layouts/Layout.astro';
 import { COMPANY, SERVICES, AREAS } from '../config';
+import TestimonialsSection from '../components/ui/TestimonialV2';
 
 const jsonld = JSON.stringify({
   "@context": "https://schema.org",
@@ -39,11 +40,6 @@ const jsonld = JSON.stringify({
   ]
 });
 
-const reviews = [
-  { name: "Sara M.", date: "Mars 2025", text: "Ringde dem klockan 20 för ett utlöst jordfelsbrytare. Tekniker var på plats inom 45 minuter, hittade felet och hade allt klart till 21:30. Ärliga priser, ingen jourtillägg. Rekommenderas varmt." },
-  { name: "David K.", date: "Februari 2025", text: "Bytte panneln från 100A till 200A. De skötte tillstånd, besiktning och samordning med elnätet. Jag behövde inte göra något alls. Priset stämde exakt med offerten — inte en krona mer." },
-  { name: "Maria T.", date: "Januari 2025", text: "Installerade en Level 2-laddare i mitt garage. Klart på en halvdag, allt enligt regler. Teknikern gick igenom allt som gjorts och svarade på varje fråga. Starkt rekommenderat." },
-];
 
 const differentiators = [
   { title: "Samma dag", text: `Vi strävar efter att vara hos dig inom 4 timmar för akuta uppdrag i ${COMPANY.city}.` },
@@ -262,34 +258,7 @@ const faqs = [
   </section>
 
   <!-- ── REVIEWS ── -->
-  <section class="section" style="background:var(--bg-dark);">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;">
-        <div>
-          <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.45);display:block;margin-bottom:0.5rem;">Vad kunderna säger</span>
-          <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#fff;letter-spacing:-0.03em;">{COMPANY.rating} stjärnor av {COMPANY.reviewCount} Google-recensioner</h2>
-          <div style="margin-top:0.5rem;font-size:1.1rem;color:#FBBF24;letter-spacing:0.05em;">★★★★★</div>
-        </div>
-        <a href="/reviews/" class="btn btn-outline" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);white-space:nowrap;">Läs alla recensioner →</a>
-      </div>
-
-      <div class="reviews-grid">
-        {reviews.map(r => (
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:1.75rem;display:flex;flex-direction:column;">
-            <div style="font-size:0.85rem;color:#FBBF24;letter-spacing:0.05em;margin-bottom:1rem;">★★★★★</div>
-            <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.75;flex-grow:1;margin-bottom:1.5rem;">"{r.text}"</p>
-            <div style="display:flex;align-items:center;gap:0.75rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:1rem;">
-              <div style="width:36px;height:36px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.85rem;flex-shrink:0;">{r.name[0]}</div>
-              <div>
-                <p style="font-size:0.875rem;font-weight:700;color:#fff;">{r.name}</p>
-                <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);">{r.date} · Google Recension</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <TestimonialsSection client:load />
 
   <!-- ── SERVICE AREAS ── -->
   <section class="section-sm" style="background:var(--bg-alt);border-top:1px solid var(--border);">
@@ -399,34 +368,18 @@ const faqs = [
       text-decoration: none;
       transition: box-shadow .2s, border-color .2s;
       position: relative;
-      overflow: hidden;
     }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--brand);
-      transform: scaleY(0);
-      transition: transform .2s ease;
-      transform-origin: bottom;
+    .service-card:hover {
+      box-shadow: var(--shadow-card), 0 0 18px rgba(119,169,237,0.12);
+      border-color: transparent;
     }
-    .service-card:hover { box-shadow: var(--shadow-card); border-color: transparent; }
-    .service-card:hover::before { transform: scaleY(1); }
     .split-grid {
       display: grid;
       gap: 4rem;
       align-items: center;
       grid-template-columns: 1fr;
     }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-    @media (min-width: 900px) {
+@media (min-width: 900px) {
       .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
       .split-grid { grid-template-columns: 1fr 1fr; }
       .split-grid > div:last-child { padding-left: 2rem; }
@@ -436,4 +389,5 @@ const faqs = [
   </style>
 
   <script src="/js/tabs.js" defer></script>
+  <script src="/js/card-hover.js" defer></script>
 </Layout>

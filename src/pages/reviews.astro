@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { COMPANY } from '../config';
+import TestimonialsSection from '../components/ui/TestimonialV2';
 
 const reviews = [
   { name: "Sara M.",    date: "Mars 2025",     rating: 5, service: "Akutreparation",      text: "Ringde klockan 20 för en utlöst jordfelsbrytare. Var på plats inom 45 minuter, hittade felet och hade allt klart till 21:30. Ärlrigt pris, ingen jourtillägg." },
@@ -48,55 +49,8 @@ const jsonld = JSON.stringify({
     </div>
   </div>
 
-  <!-- Hero -->
-  <section style="position:relative;background:var(--bg-dark);padding:5rem 0 4rem;overflow:hidden;text-align:center;">
-    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,41,55,0.97) 0%,rgba(31,41,55,0.85) 100%);" aria-hidden="true"></div>
-    <div class="container" style="position:relative;z-index:1;max-width:580px;">
-      <span class="section-label" style="margin-bottom:0.75rem;">Vad kunderna säger</span>
-      <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:0.75rem;">Vad våra kunder säger</h1>
-      <div style="font-size:1.75rem;color:#FBBF24;letter-spacing:0.05em;margin-bottom:0.75rem;">★★★★★</div>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,0.8);font-weight:700;">{COMPANY.rating} av 5 · {COMPANY.reviewCount} Google-recensioner</p>
-    </div>
-  </section>
-
-  <!-- Google Reviews widget -->
-  <section style="background:var(--bg-alt);padding:2.5rem 0;border-bottom:1px solid var(--border);">
-    <div class="container" style="max-width:760px;text-align:center;">
-      <img
-        src="/recensioner.png"
-        alt="4.9 av 5 — 148 Google-recensioner"
-        style="max-width:420px;width:100%;border-radius:1.25rem;box-shadow:var(--shadow-card);display:block;margin:0 auto;"
-      />
-    </div>
-  </section>
-
-  <!-- Written reviews -->
-  <section class="section" style="background:var(--bg-page);">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:2.5rem;">
-        <span class="section-label">Verifierade omdömen</span>
-        <h2 class="section-title">Verifierade kundrecensioner</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;">
-        {reviews.map(r => (
-          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem;display:flex;flex-direction:column;transition:box-shadow .2s;" onmouseenter="this.style.boxShadow='var(--shadow-card)'" onmouseleave="this.style.boxShadow=''">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
-              <div style="font-size:0.85rem;color:#FBBF24;letter-spacing:0.05em;">★★★★★</div>
-              <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);background:rgba(119,169,237,0.08);padding:0.2rem 0.6rem;border-radius:2px;">{r.service}</span>
-            </div>
-            <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.75;flex-grow:1;margin-bottom:1.25rem;">"{r.text}"</p>
-            <div style="display:flex;align-items:center;gap:0.75rem;border-top:1px solid var(--border);padding-top:1rem;">
-              <div style="width:34px;height:34px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.8rem;flex-shrink:0;">{r.name[0]}</div>
-              <div>
-                <p style="font-size:0.85rem;font-weight:700;color:var(--text-main);">{r.name}</p>
-                <p style="font-size:0.72rem;color:var(--text-light);">{r.date} · Google Recension</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Animated testimonials -->
+  <TestimonialsSection client:load />
 
   <!-- CTA -->
   <section class="section" style="background:var(--bg-alt);">
