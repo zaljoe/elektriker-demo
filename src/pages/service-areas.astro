@@ -64,18 +64,13 @@ const jsonld = JSON.stringify({
         ))}
       </div>
 
-      <!-- Google Maps — Göteborg serviceområde -->
-      <div style="border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--border);height:380px;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86191.23!2d11.97456!3d57.70716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464f8ce1a6b0b0a3%3A0x8bc6de7d3e7ca2c!2sG%C3%B6teborg!5e0!3m2!1ssv!2sse!4v1700000000000"
-          width="100%"
-          height="380"
-          style="border:0;display:block;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Serviceområde Göteborg"
-        ></iframe>
+      <!-- Google Maps facade — laddas vid klick -->
+      <div class="map-facade" data-height="380" style="border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--border);height:380px;cursor:pointer;position:relative;background:#e8eef4;display:flex;align-items:center;justify-content:center;">
+        <img src="/map-preview.webp" alt="Karta Göteborg serviceområde" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+        <div style="position:relative;z-index:1;text-align:center;background:rgba(255,255,255,0.9);border-radius:999px;padding:0.6rem 1.5rem;display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;color:#1a1a2e;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Visa karta
+        </div>
       </div>
     </div>
   </section>
