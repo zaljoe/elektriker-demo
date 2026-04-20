@@ -150,7 +150,7 @@ const url = canonical ?? Astro.url.href;
       </a>
 
       <!-- Desktop nav -->
-      <nav style="display:none;gap:2rem;font-size:0.875rem;font-weight:600;" class="desktop-nav" aria-label="Huvudnavigation">
+      <nav style="gap:2rem;font-size:0.875rem;font-weight:600;" class="desktop-nav" aria-label="Huvudnavigation">
 
         <!-- Tjänster dropdown -->
         <div class="nav-dropdown">
@@ -173,7 +173,7 @@ const url = canonical ?? Astro.url.href;
 
       <!-- Actions -->
       <div style="display:flex;align-items:center;gap:1.5rem;">
-        <a href={COMPANY.phoneTel} style="display:none;align-items:center;gap:0.5rem;font-weight:700;font-size:0.95rem;" class="header-phone">
+        <a href={COMPANY.phoneTel} style="align-items:center;gap:0.5rem;font-weight:700;font-size:0.95rem;" class="header-phone">
           <span class="pulse-dot"></span>
           Dygnet runt: {COMPANY.phone}
         </a>
@@ -314,10 +314,12 @@ const url = canonical ?? Astro.url.href;
     }
     .nav-dropdown-item:hover { background: var(--bg-alt); color: var(--brand); }
 
+    .desktop-nav { display: none; }
+    .header-phone { display: none; }
     @media(min-width:900px){
-      .desktop-nav { display:flex !important; }
-      .header-phone { display:flex !important; }
-      #menu-toggle { display:none !important; }
+      .desktop-nav { display: flex; }
+      .header-phone { display: flex; }
+      #menu-toggle { display: none !important; }
     }
     @media(max-width:768px){
       .topbar-links { display:none !important; }

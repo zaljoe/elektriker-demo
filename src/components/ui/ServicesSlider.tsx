@@ -208,26 +208,22 @@ export default function ServicesSlider() {
 
   useEffect(() => {
     const measure = () => {
-      if (wrapperRef.current) {
+      requestAnimationFrame(() => {
+        if (!wrapperRef.current) return;
         const w = wrapperRef.current.offsetWidth;
+        if (w === 0) return;
         const cw = Math.floor((w - GAP * (CARDS_VISIBLE - 1)) / CARDS_VISIBLE);
         setCardWidth(cw);
-      }
-      if (trackRef.current && wrapperRef.current) {
-        setDragWidth(Math.max(0, trackRef.current.scrollWidth - wrapperRef.current.offsetWidth));
-      }
+        if (trackRef.current) {
+          setDragWidth(Math.max(0, trackRef.current.scrollWidth - w));
+        }
+      });
     };
     measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const ro = new ResizeObserver(measure);
+    if (wrapperRef.current) ro.observe(wrapperRef.current);
+    return () => ro.disconnect();
   }, []);
-
-  // Recalculate drag width after card width is set
-  useEffect(() => {
-    if (trackRef.current && wrapperRef.current) {
-      setDragWidth(Math.max(0, trackRef.current.scrollWidth - wrapperRef.current.offsetWidth));
-    }
-  }, [cardWidth]);
 
   const scrollTo = (direction: "left" | "right") => {
     const currentX = x.get();
