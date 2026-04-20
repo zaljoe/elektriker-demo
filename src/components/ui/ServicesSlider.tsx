@@ -49,7 +49,7 @@ const services: Service[] = [
     title: "Akut Eljour",
     short: "Jour dygnet runt — vi svarar när andra inte gör det.",
     tag: "Jour 24/7",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?w=800&q=80",
   },
   {
     slug: "commercial-electrical",
@@ -203,7 +203,6 @@ export default function ServicesSlider() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState(280);
   const [dragWidth, setDragWidth] = useState(0);
-  const [sliderHovered, setSliderHovered] = useState(false);
   const x = useMotionValue(0);
 
   useEffect(() => {
@@ -239,8 +238,6 @@ export default function ServicesSlider() {
     <div
       ref={wrapperRef}
       style={{ position: "relative", width: "100%" }}
-      onMouseEnter={() => setSliderHovered(true)}
-      onMouseLeave={() => setSliderHovered(false)}
     >
       {/* Arrows */}
       {(["left", "right"] as const).map((dir) => (
@@ -257,9 +254,6 @@ export default function ServicesSlider() {
             boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
             display: "flex", alignItems: "center", justifyContent: "center",
             cursor: "pointer", color: "#374151",
-            opacity: sliderHovered ? 1 : 0,
-            transition: "opacity 0.2s ease",
-            pointerEvents: sliderHovered ? "auto" : "none",
           }}
         >
           {dir === "left" ? <ChevronLeft size={17} /> : <ChevronRight size={17} />}

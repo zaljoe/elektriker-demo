@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import { COMPANY, SERVICES, AREAS } from '../config';
 import TestimonialsSection from '../components/ui/TestimonialV2';
 import ServicesSlider from '../components/ui/ServicesSlider';
+import TrustBar from '../components/ui/TrustBar';
 
 const jsonld = JSON.stringify({
   "@context": "https://schema.org",
@@ -165,21 +166,7 @@ const trustDoubled = [...trustItems, ...trustItems];
   </section>
 
   <!-- ── TRUST BAR (animated marquee) ── -->
-  <div style="position:relative;background:#1F2937;border-top:1px solid rgba(119,169,237,0.2);overflow:hidden;height:52px;display:flex;align-items:center;" aria-hidden="true">
-    <div style="position:absolute;left:0;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;background:linear-gradient(to right,#1F2937,transparent);"></div>
-    <div class="trustbar-track" style="display:flex;align-items:center;white-space:nowrap;animation:trustbar-scroll 32s linear infinite;will-change:transform;">
-      {trustDoubled.map((item) => (
-        <>
-          <div style="display:inline-flex;align-items:center;gap:0.55rem;padding:0 2rem;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.01em;flex-shrink:0;">
-            <svg width="15" height="15" fill="none" stroke="#77A9ED" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;" set:html={item.icon}></svg>
-            <span>{item.label}</span>
-          </div>
-          <span style="display:inline-block;width:4px;height:4px;border-radius:50%;background:rgba(119,169,237,0.5);flex-shrink:0;" aria-hidden="true"></span>
-        </>
-      ))}
-    </div>
-    <div style="position:absolute;right:0;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;background:linear-gradient(to left,#1F2937,transparent);"></div>
-  </div>
+  <TrustBar client:load />
 
   <!-- ── SERVICES ── -->
   <section class="section" style="background:var(--bg-alt);">
