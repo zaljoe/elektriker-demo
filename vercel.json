@@ -1,4 +1,9 @@
 {
+  "build": {
+    "env": {
+      "NODE_VERSION": "22"
+    }
+  },
   "headers": [
     {
       "source": "/:path*.(jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf|otf|js|css)",
