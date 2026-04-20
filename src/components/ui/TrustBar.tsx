@@ -42,9 +42,10 @@ export default function TrustBar() {
       if (lastRef.current !== null) {
         const delta = ts - lastRef.current;
         posRef.current -= SPEED * delta / 1000;
-        const halfW = track.scrollWidth / 2;
-        if (halfW > 0 && posRef.current <= -halfW) {
-          posRef.current += halfW;
+        // Reset after exactly one set width (track has 4 copies, so setW = scrollWidth/4)
+        const setW = track.scrollWidth / 4;
+        if (setW > 0 && posRef.current <= -setW) {
+          posRef.current += setW;
         }
         track.style.transform = `translateX(${posRef.current}px)`;
       }
@@ -72,8 +73,10 @@ export default function TrustBar() {
       {/* Left fade */}
       <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, zIndex: 2, pointerEvents: "none", background: "linear-gradient(to right,#1F2937,transparent)" }} />
 
-      {/* Scrolling track — two copies for seamless loop */}
+      {/* Scrolling track — four copies so one set always fits within view */}
       <div ref={trackRef} style={{ display: "flex", alignItems: "center", willChange: "transform" }}>
+        <TrackItems />
+        <TrackItems />
         <TrackItems />
         <TrackItems />
       </div>
