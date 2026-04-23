@@ -3,7 +3,8 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const BRAND = "#77A9ED";
-const BRAND_DARK = "#5b91d8";
+const CARD_BG = "#0f172a";
+const CARD_BG_HOVER = "#1e293b";
 const GAP = 16;
 
 function getCardsVisible(width: number) {
@@ -79,13 +80,13 @@ function ServiceCard({ service, cardWidth }: { service: Service; cardWidth: numb
         height: 400,
         borderRadius: 20,
         overflow: "hidden",
-        background: hovered ? BRAND_DARK : BRAND,
+        background: hovered ? CARD_BG_HOVER : CARD_BG,
         border: hovered
-          ? "1px solid rgba(255,255,255,0.3)"
-          : "1px solid rgba(255,255,255,0.15)",
+          ? `1px solid ${BRAND}`
+          : "1px solid rgba(119,169,237,0.2)",
         boxShadow: hovered
-          ? "0 20px 40px -10px rgba(91,145,216,0.5), 0 6px 20px rgba(0,0,0,0.15)"
-          : "0 4px 20px rgba(119,169,237,0.2)",
+          ? `0 20px 40px -10px rgba(91,145,216,0.4), 0 6px 20px rgba(0,0,0,0.3)`
+          : "0 4px 20px rgba(0,0,0,0.25)",
         transform: hovered ? "translateY(-8px)" : "translateY(0px)",
         transition: "transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease",
         cursor: "pointer",
@@ -115,8 +116,8 @@ function ServiceCard({ service, cardWidth }: { service: Service; cardWidth: numb
         <div style={{
           position: "absolute", inset: 0,
           background: hovered
-            ? `linear-gradient(to top, ${BRAND_DARK} 0%, transparent 55%)`
-            : `linear-gradient(to top, ${BRAND} 0%, transparent 55%)`,
+            ? `linear-gradient(to top, ${CARD_BG_HOVER} 0%, transparent 55%)`
+            : `linear-gradient(to top, ${CARD_BG} 0%, transparent 55%)`,
           transition: "background 0.15s ease",
         }} />
 
