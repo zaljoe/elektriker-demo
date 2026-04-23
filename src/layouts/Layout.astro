@@ -55,7 +55,7 @@ const url = canonical ?? Astro.url.href;
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       font-family: var(--font);
@@ -63,6 +63,7 @@ const url = canonical ?? Astro.url.href;
       background: var(--bg-page);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     img { max-width: 100%; height: auto; display: block; }
@@ -177,8 +178,8 @@ const url = canonical ?? Astro.url.href;
           <span class="pulse-dot"></span>
           Dygnet runt: {COMPANY.phone}
         </a>
-        <a href="/contact/" class="btn btn-outline" style="font-size:0.85rem;padding:0.75rem 1.4rem;">Kontakt</a>
-        <a href="/contact/" class="btn btn-primary" style="font-size:0.85rem;padding:0.75rem 1.4rem;">Få offert</a>
+        <a href="/contact/" class="btn btn-outline header-btn-kontakt" style="font-size:0.85rem;padding:0.75rem 1.4rem;">Kontakt</a>
+        <a href="/contact/" class="btn btn-primary header-btn-offert" style="font-size:0.85rem;padding:0.75rem 1.4rem;">Få offert</a>
         <button id="menu-toggle" aria-label="Öppna meny" aria-expanded="false" style="width:40px;height:40px;border:1.5px solid var(--border);background:transparent;border-radius:var(--radius-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;">
           <span style="width:18px;height:1.5px;background:var(--text-main);display:block;"></span>
           <span style="width:18px;height:1.5px;background:var(--text-main);display:block;"></span>
@@ -316,9 +317,13 @@ const url = canonical ?? Astro.url.href;
 
     .desktop-nav { display: none; }
     .header-phone { display: none; }
+    .header-btn-kontakt { display: none; }
+    .header-btn-offert { font-size: 0.78rem !important; padding: 0.6rem 1rem !important; }
     @media(min-width:900px){
       .desktop-nav { display: flex; }
       .header-phone { display: flex; }
+      .header-btn-kontakt { display: inline-flex; }
+      .header-btn-offert { font-size: 0.85rem !important; padding: 0.75rem 1.4rem !important; }
       #menu-toggle { display: none !important; }
     }
     @media(max-width:768px){

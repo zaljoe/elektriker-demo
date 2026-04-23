@@ -5,7 +5,13 @@ import { useEffect, useRef, useState } from "react";
 const BRAND = "#77A9ED";
 const BRAND_DARK = "#5b91d8";
 const GAP = 16;
-const CARDS_VISIBLE = 4;
+
+function getCardsVisible(width: number) {
+  if (width < 480) return 1;
+  if (width < 768) return 2;
+  if (width < 1024) return 3;
+  return 4;
+}
 
 interface Service {
   slug: string;
@@ -202,6 +208,7 @@ export default function ServicesSlider() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState(280);
+  const [cardsVisible, setCardsVisible] = useState(4);
   const [dragWidth, setDragWidth] = useState(0);
   const x = useMotionValue(0);
 
@@ -211,7 +218,9 @@ export default function ServicesSlider() {
         if (!wrapperRef.current) return;
         const w = wrapperRef.current.offsetWidth;
         if (w === 0) return;
-        const cw = Math.floor((w - GAP * (CARDS_VISIBLE - 1)) / CARDS_VISIBLE);
+        const cv = getCardsVisible(w);
+        setCardsVisible(cv);
+        const cw = Math.floor((w - GAP * (cv - 1)) / cv);
         setCardWidth(cw);
         if (trackRef.current) {
           setDragWidth(Math.max(0, trackRef.current.scrollWidth - w));
@@ -226,7 +235,7 @@ export default function ServicesSlider() {
 
   const scrollTo = (direction: "left" | "right") => {
     const currentX = x.get();
-    const amount = (cardWidth + GAP) * CARDS_VISIBLE;
+    const amount = (cardWidth + GAP) * cardsVisible;
     const newX =
       direction === "left"
         ? Math.min(currentX + amount, 0)
