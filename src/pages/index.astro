@@ -138,16 +138,16 @@ const trustDoubled = [...trustItems, ...trustItems];
 
           <form action="/contact/" method="get" style="padding:1.75rem;display:flex;flex-direction:column;gap:1rem;">
             <div>
-              <label style="display:block;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Ditt namn</label>
-              <input type="text" name="name" placeholder="Anna Svensson" style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:var(--font);color:var(--text-main);outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'" />
+              <label for="hero-name" style="display:block;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Ditt namn</label>
+              <input type="text" id="hero-name" name="name" placeholder="Anna Svensson" style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:var(--font);color:var(--text-main);outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'" />
             </div>
             <div>
-              <label style="display:block;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Telefon</label>
-              <input type="tel" name="phone" placeholder="070-000 00 00" style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:var(--font);color:var(--text-main);outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'" />
+              <label for="hero-phone" style="display:block;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Telefon</label>
+              <input type="tel" id="hero-phone" name="phone" placeholder="070-000 00 00" style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:var(--font);color:var(--text-main);outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'" />
             </div>
             <div>
-              <label style="display:block;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Typ av tjänst</label>
-              <select name="service" style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:var(--font);color:var(--text-main);outline:none;background:#fff;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236B7280' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.875rem center;">
+              <label for="hero-service" style="display:block;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Typ av tjänst</label>
+              <select id="hero-service" name="service" style="width:100%;padding:0.75rem 0.875rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:var(--font);color:var(--text-main);outline:none;background:#fff;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236B7280' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.875rem center;">
                 <option value="">Välj tjänst...</option>
                 {SERVICES.map(s => <option value={s.slug}>{s.title}</option>)}
                 <option value="other">Annat / vet ej</option>
