@@ -44,6 +44,7 @@ const url = canonical ?? Astro.url.href;
       --text-main:        #111827;
       --text-muted:       #4B5563;
       --text-light:       #6B7280;
+      --text-on-dark:     #D1D5DB;
       --bg-page:      #FFFFFF;
       --bg-alt:       #F4F6F8;
       --bg-dark:      #1F2937;
@@ -237,7 +238,7 @@ const url = canonical ?? Astro.url.href;
               JM<span style="color:var(--brand-text);margin-left:0.18em;">EL</span>
             </span>
           </a>
-          <p style="color:var(--text-light);font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;max-width:280px;">Professionella, byggnadslagsenliga eltjänster för bostäder och företag i {COMPANY.city} och omnejd.</p>
+          <p style="color:var(--text-on-dark);font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;max-width:280px;">Professionella, byggnadslagsenliga eltjänster för bostäder och företag i {COMPANY.city} och omnejd.</p>
           <div style="font-size:0.8rem;color:#D1D5DB;">
             <strong>Telefon:</strong> <a href={COMPANY.phoneTel} style="color:#D1D5DB;">{COMPANY.phone}</a><br/>
             <strong>E-post:</strong> <a href={`mailto:${COMPANY.email}`} style="color:#D1D5DB;">{COMPANY.email}</a>
@@ -249,7 +250,7 @@ const url = canonical ?? Astro.url.href;
           <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:1.25rem;color:#fff;">Tjänster</h3>
           <ul style="display:flex;flex-direction:column;gap:0.6rem;">
             {SERVICES.map(s => (
-              <li><a href={`/services/${s.slug}/`} style="font-size:0.875rem;color:var(--text-light);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-light)'">{s.title}</a></li>
+              <li><a href={`/services/${s.slug}/`} style="font-size:0.875rem;color:var(--text-on-dark);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-on-dark)'">{s.title}</a></li>
             ))}
           </ul>
         </div>
@@ -265,7 +266,7 @@ const url = canonical ?? Astro.url.href;
               { href: "/blog/", label: "Blogg" },
               { href: "/contact/", label: "Kontakt" },
             ].map(l => (
-              <li><a href={l.href} style="font-size:0.875rem;color:var(--text-light);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-light)'">{l.label}</a></li>
+              <li><a href={l.href} style="font-size:0.875rem;color:var(--text-on-dark);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-on-dark)'">{l.label}</a></li>
             ))}
           </ul>
         </div>
@@ -273,19 +274,19 @@ const url = canonical ?? Astro.url.href;
         <!-- Emergency -->
         <div>
           <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:1.25rem;color:#fff;">Akutjour</h3>
-          <p style="font-size:0.875rem;color:var(--text-light);line-height:1.7;margin-bottom:1.25rem;">{COMPANY.hours}</p>
+          <p style="font-size:0.875rem;color:var(--text-on-dark);line-height:1.7;margin-bottom:1.25rem;">{COMPANY.hours}</p>
           <div style="padding:1rem;background:rgba(119,169,237,0.15);border:1px solid rgba(119,169,237,0.3);border-radius:var(--radius-sm);">
             <p style="font-size:0.8rem;color:#77A9ED;font-weight:600;margin-bottom:0.4rem;">Elektrisk nödsituation?</p>
             <a href={COMPANY.phoneTel} style="font-size:0.9rem;color:#fff;font-weight:700;">{COMPANY.phone}</a>
-            <p style="font-size:0.72rem;color:var(--text-light);margin-top:0.25rem;">Jour dygnet runt</p>
+            <p style="font-size:0.72rem;color:var(--text-on-dark);margin-top:0.25rem;">Jour dygnet runt</p>
           </div>
         </div>
       </div>
 
       <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-        <p style="font-size:0.75rem;color:var(--text-light);">© {new Date().getFullYear()} {COMPANY.name}. Alla rättigheter förbehållna.</p>
+        <p style="font-size:0.75rem;color:var(--text-on-dark);">© {new Date().getFullYear()} {COMPANY.name}. Alla rättigheter förbehållna.</p>
         <div style="display:flex;gap:1.25rem;">
-          <a href="/privacy/" style="font-size:0.75rem;color:var(--text-light);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-light)'">Integritetspolicy</a>
+          <a href="/privacy/" style="font-size:0.75rem;color:var(--text-on-dark);transition:color .15s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--text-on-dark)'">Integritetspolicy</a>
         </div>
       </div>
     </div>
