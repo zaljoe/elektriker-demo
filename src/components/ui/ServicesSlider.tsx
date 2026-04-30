@@ -183,7 +183,6 @@ function ServiceCard({ service, cardWidth }: { service: Service; cardWidth: numb
           <a
             href={`/services/${service.slug}/`}
             onClick={(e) => e.stopPropagation()}
-            aria-label={`Läs mer om ${service.title}`}
             style={{
               display: "flex", alignItems: "center", gap: 5,
               fontSize: "0.8rem", fontWeight: 600,
@@ -192,6 +191,10 @@ function ServiceCard({ service, cardWidth }: { service: Service; cardWidth: numb
             }}
           >
             Läs mer
+            <span style={{
+              position: "absolute", width: 1, height: 1, padding: 0, margin: -1,
+              overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0,
+            }}>{` om ${service.title}`}</span>
             <ArrowRight
               size={13}
               style={{
