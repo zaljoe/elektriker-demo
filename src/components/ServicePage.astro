@@ -22,11 +22,11 @@ const { title, metaTitle, metaDesc, slug, problem, included, steps, priceSignal,
   <!-- Breadcrumb -->
   <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
     <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
-      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand-text)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
       <span style="color:var(--text-light);">›</span>
-      <a href="/services/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Tjänster</a>
+      <a href="/services/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand-text)'" onmouseleave="this.style.color='var(--text-muted)'">Tjänster</a>
       <span style="color:var(--text-light);">›</span>
-      <span style="color:var(--brand);font-weight:600;">{title}</span>
+      <span style="color:var(--brand-text);font-weight:600;">{title}</span>
     </div>
   </div>
 
@@ -88,7 +88,7 @@ const { title, metaTitle, metaDesc, slug, problem, included, steps, priceSignal,
           <div style="display:flex;flex-direction:column;gap:1.5rem;">
             {steps.map((step, i) => (
               <div style="display:flex;gap:1.25rem;align-items:flex-start;">
-                <div style="width:36px;height:36px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;color:#fff;flex-shrink:0;">{i + 1}</div>
+                <div style="width:36px;height:36px;border-radius:50%;background:var(--brand-strong);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;color:#fff;flex-shrink:0;">{i + 1}</div>
                 <div>
                   <h3 style="font-size:0.95rem;font-weight:700;color:var(--text-main);margin-bottom:0.3rem;">{step.title}</h3>
                   <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;">{step.text}</p>
@@ -114,7 +114,7 @@ const { title, metaTitle, metaDesc, slug, problem, included, steps, priceSignal,
             <div style="font-size:0.85rem;color:#FBBF24;letter-spacing:0.05em;margin-bottom:1rem;">★★★★★</div>
             <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.75;flex-grow:1;margin-bottom:1.5rem;">"{r.text}"</p>
             <div style="display:flex;align-items:center;gap:0.75rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:1rem;">
-              <div style="width:34px;height:34px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.8rem;flex-shrink:0;">{r.name[0]}</div>
+              <div style="width:34px;height:34px;border-radius:50%;background:var(--brand-strong);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.8rem;flex-shrink:0;">{r.name[0]}</div>
               <div>
                 <p style="font-size:0.85rem;font-weight:700;color:#fff;">{r.name}</p>
                 <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);">{r.date} · Google Recension</p>
@@ -138,7 +138,7 @@ const { title, metaTitle, metaDesc, slug, problem, included, steps, priceSignal,
           <details style={`border-top:1px solid var(--border);${i === faqs.length - 1 ? 'border-bottom:1px solid var(--border);' : ''}`}>
             <summary style="display:flex;align-items:center;justify-content:space-between;padding:1.2rem 0;cursor:pointer;list-style:none;font-weight:700;font-size:0.95rem;color:var(--text-main);" class="faq-summary">
               {faq.q}
-              <span style="font-size:1.2rem;font-weight:300;color:var(--brand);flex-shrink:0;margin-left:1rem;">+</span>
+              <span style="font-size:1.2rem;font-weight:300;color:var(--brand-text);flex-shrink:0;margin-left:1rem;">+</span>
             </summary>
             <div style="padding-bottom:1.2rem;color:var(--text-muted);font-size:0.875rem;line-height:1.8;">{faq.a}</div>
           </details>

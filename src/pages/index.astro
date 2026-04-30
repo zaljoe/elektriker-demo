@@ -96,7 +96,7 @@ const trustDoubled = [...trustItems, ...trustItems];
 
           <h1 style="font-size:clamp(2.4rem,5vw,3.6rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.25rem;">
             Elektriker i Väst<br/>
-            <span style="color:var(--brand);">Licensierad &amp; Lokal</span>
+            <span style="color:var(--brand-text);">Licensierad &amp; Lokal</span>
           </h1>
           <p style="font-size:1.1rem;color:rgba(255,255,255,0.7);line-height:1.7;max-width:480px;margin-bottom:2.25rem;">
             {COMPANY.years} år av trygg elservice för hushåll och företag i {COMPANY.city}. Svarar samma dag, fast pris, 2 års garanti.
@@ -132,7 +132,7 @@ const trustDoubled = [...trustItems, ...trustItems];
         <div style="background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-card);overflow:hidden;">
           <!-- Tabs -->
           <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--border);">
-            <button id="tab-service" onclick="switchTab('service')" style="padding:1rem;font-size:0.85rem;font-weight:600;border:none;background:var(--brand);color:#fff;cursor:pointer;border-radius:0;">Begär service</button>
+            <button id="tab-service" onclick="switchTab('service')" style="padding:1rem;font-size:0.85rem;font-weight:600;border:none;background:var(--brand-strong);color:#fff;cursor:pointer;border-radius:0;">Begär service</button>
             <button id="tab-quote" onclick="switchTab('quote')" style="padding:1rem;font-size:0.85rem;font-weight:600;border:none;background:#fff;color:var(--text-muted);cursor:pointer;border-radius:0;">Gratis offert</button>
           </div>
 
@@ -166,7 +166,7 @@ const trustDoubled = [...trustItems, ...trustItems];
   </section>
 
   <!-- ── TRUST BAR (animated marquee) ── -->
-  <TrustBar client:load />
+  <TrustBar client:idle />
 
   <!-- ── SERVICES ── -->
   <section class="section" style="background:var(--bg-alt);">
@@ -176,7 +176,7 @@ const trustDoubled = [...trustItems, ...trustItems];
         <h2 class="section-title">Eltjänster i {COMPANY.city}</h2>
         <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Från akutreparationer till fullständiga kommersiella installationer — licenserat arbete, fast pris, alltid garanti.</p>
       </div>
-      <ServicesSlider client:load />
+      <ServicesSlider client:visible />
     </div>
   </section>
 
@@ -207,7 +207,7 @@ const trustDoubled = [...trustItems, ...trustItems];
             />
           </div>
           <!-- Experience badge -->
-          <div style="position:absolute;top:-1rem;left:-1rem;background:var(--brand);color:#fff;border-radius:var(--radius-sm);padding:0.85rem 1.1rem;box-shadow:var(--shadow-card);text-align:center;line-height:1.2;">
+          <div style="position:absolute;top:-1rem;left:-1rem;background:var(--brand-strong);color:#fff;border-radius:var(--radius-sm);padding:0.85rem 1.1rem;box-shadow:var(--shadow-card);text-align:center;line-height:1.2;">
             <span style="font-size:1.8rem;font-weight:800;display:block;">{COMPANY.years}</span>
             <span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;opacity:0.9;">Års erfarenhet</span>
           </div>
@@ -244,7 +244,7 @@ const trustDoubled = [...trustItems, ...trustItems];
   </section>
 
   <!-- ── REVIEWS ── -->
-  <TestimonialsSection client:load />
+  <TestimonialsSection client:visible />
 
   <!-- ── SERVICE AREAS ── -->
   <section class="section-sm" style="background:var(--bg-alt);border-top:1px solid var(--border);">
@@ -285,7 +285,7 @@ const trustDoubled = [...trustItems, ...trustItems];
           <details style={`border-top:1px solid var(--border);${i === faqs.length - 1 ? 'border-bottom:1px solid var(--border);' : ''}`}>
             <summary style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;cursor:pointer;list-style:none;font-weight:700;font-size:0.95rem;color:var(--text-main);" class="faq-summary">
               {faq.q}
-              <span style="font-size:1.25rem;font-weight:300;color:var(--brand);flex-shrink:0;margin-left:1rem;transition:transform .2s;">+</span>
+              <span style="font-size:1.25rem;font-weight:300;color:var(--brand-text);flex-shrink:0;margin-left:1rem;transition:transform .2s;">+</span>
             </summary>
             <div style="padding-bottom:1.25rem;color:var(--text-muted);font-size:0.9rem;line-height:1.8;">{faq.a}</div>
           </details>

@@ -24,9 +24,9 @@ const jsonld = JSON.stringify({
   <!-- Breadcrumb -->
   <div style="background:var(--bg-alt);border-bottom:1px solid var(--border);padding:0.65rem 0;font-size:0.78rem;color:var(--text-muted);">
     <div class="container" style="display:flex;align-items:center;gap:0.4rem;">
-      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
+      <a href="/" style="color:var(--text-muted);transition:color .15s;" onmouseenter="this.style.color='var(--brand-text)'" onmouseleave="this.style.color='var(--text-muted)'">Hem</a>
       <span style="color:var(--text-light);">›</span>
-      <span style="color:var(--brand);font-weight:600;">Om oss</span>
+      <span style="color:var(--brand-text);font-weight:600;">Om oss</span>
     </div>
   </div>
 
@@ -75,7 +75,7 @@ const jsonld = JSON.stringify({
               { num: COMPANY.rating + " ★", label: "Google-betyg" },
             ].map(s => (
               <div>
-                <div style="font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--brand);">{s.num}</div>
+                <div style="font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--brand-text);">{s.num}</div>
                 <div style="font-size:0.78rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;">{s.label}</div>
               </div>
             ))}
@@ -104,7 +104,7 @@ const jsonld = JSON.stringify({
         </div>
         <div>
           <h3 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.25rem;">{founderName}</h3>
-          <p style="font-size:0.875rem;font-weight:600;color:var(--brand);margin-bottom:1.25rem;">Elektriker &amp; Grundare · {COMPANY.name}</p>
+          <p style="font-size:0.875rem;font-weight:600;color:var(--brand-text);margin-bottom:1.25rem;">Elektriker &amp; Grundare · {COMPANY.name}</p>
           <p style="color:var(--text-muted);font-size:1rem;line-height:1.85;margin-bottom:1.5rem;">
             Johan är elektriker — det är vad han är och det han gör varje dag. Han gick sin lärlingsutbildning i Göteborg, jobbade några år hos andra firmor och startade sedan JM EL 2005 för att kunna göra jobbet på sitt eget sätt: ordentligt, ärligt och utan krångel. Fortfarande ute på uppdrag, fortfarande den som svarar när du ringer.
           </p>

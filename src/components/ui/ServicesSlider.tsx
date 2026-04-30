@@ -183,6 +183,7 @@ function ServiceCard({ service, cardWidth }: { service: Service; cardWidth: numb
           <a
             href={`/services/${service.slug}/`}
             onClick={(e) => e.stopPropagation()}
+            aria-label={`Läs mer om ${service.title}`}
             style={{
               display: "flex", alignItems: "center", gap: 5,
               fontSize: "0.8rem", fontWeight: 600,
