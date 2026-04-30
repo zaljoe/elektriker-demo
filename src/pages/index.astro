@@ -3,7 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import { COMPANY, SERVICES, AREAS } from '../config';
 import TestimonialsSection from '../components/ui/TestimonialV2';
-import ServicesSlider from '../components/ui/ServicesSlider';
+import ServicesSlider from '../components/ui/ServicesSlider.astro';
 import TrustBar from '../components/ui/TrustBar.astro';
 
 const jsonld = JSON.stringify({
@@ -176,7 +176,7 @@ const trustDoubled = [...trustItems, ...trustItems];
         <h2 class="section-title">Eltjänster i {COMPANY.city}</h2>
         <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Från akutreparationer till fullständiga kommersiella installationer — licenserat arbete, fast pris, alltid garanti.</p>
       </div>
-      <ServicesSlider client:visible />
+      <ServicesSlider />
     </div>
   </section>
 
@@ -433,4 +433,5 @@ const trustDoubled = [...trustItems, ...trustItems];
 
   <script src="/js/tabs.js" defer></script>
   <script src="/js/card-hover.js" defer></script>
+  <script src="/js/services-slider.js" defer></script>
 </Layout>
