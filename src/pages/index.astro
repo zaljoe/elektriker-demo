@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import { COMPANY, SERVICES, AREAS } from '../config';
 import TestimonialsSection from '../components/ui/TestimonialV2';
 import ServicesSlider from '../components/ui/ServicesSlider';
-import TrustBar from '../components/ui/TrustBar';
+import TrustBar from '../components/ui/TrustBar.astro';
 
 const jsonld = JSON.stringify({
   "@context": "https://schema.org",
@@ -166,7 +166,7 @@ const trustDoubled = [...trustItems, ...trustItems];
   </section>
 
   <!-- ── TRUST BAR (animated marquee) ── -->
-  <TrustBar client:idle />
+  <TrustBar />
 
   <!-- ── SERVICES ── -->
   <section class="section" style="background:var(--bg-alt);">
