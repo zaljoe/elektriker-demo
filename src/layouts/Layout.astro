@@ -314,7 +314,8 @@ const url = canonical ?? Astro.url.href;
       z-index: 200;
     }
     .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown:focus-within .nav-dropdown-menu {
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown.is-open .nav-dropdown-menu {
       opacity: 1; visibility: visible;
       transform: translateX(-50%) translateY(0);
       transition: opacity .15s ease, transform .15s ease, visibility 0s linear 0s;
@@ -347,6 +348,7 @@ const url = canonical ?? Astro.url.href;
   </style>
 
   <script src="/js/nav.js" defer></script>
+  <script src="/js/nav-dropdown.js" defer></script>
   <script src="/js/accordion.js" defer></script>
   <script src="/js/maps.js" defer></script>
 </body>
