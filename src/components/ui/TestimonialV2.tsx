@@ -114,7 +114,7 @@ const TestimonialsColumn = ({
                     alt={`Recension av ${name}`}
                     loading="lazy"
                     decoding="async"
-                    className="h-10 w-10 rounded-full object-cover ring-2 ring-neutral-100 group-hover:ring-blue-200 transition-all duration-300"
+                    className="h-10 w-10 rounded-full object-cover ring-2 ring-neutral-100 group-hover:ring-blue-200 transition-[box-shadow] duration-300"
                   />
                   <div className="flex flex-col">
                     <cite className="font-semibold not-italic tracking-tight leading-5 text-neutral-900">
