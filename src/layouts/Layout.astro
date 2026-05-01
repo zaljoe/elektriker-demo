@@ -297,17 +297,27 @@ const url = canonical ?? Astro.url.href;
       transition: color .15s; cursor: pointer;
     }
     .nav-dropdown-trigger:hover { color: var(--brand-text); }
+    /* Invisible bridge so the hover doesn't break when the cursor crosses
+       the gap between trigger and menu */
+    .nav-dropdown::after {
+      content: "";
+      position: absolute; top: 100%; left: 0; right: 0;
+      height: 14px;
+    }
     .nav-dropdown-menu {
-      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      position: absolute; top: calc(100% + 10px); left: 50%;
       background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card); min-width: 240px; padding: 12px 0 0.4rem;
-      opacity: 0; visibility: hidden; transition: opacity .15s, transform .15s;
+      box-shadow: var(--shadow-card); min-width: 240px; padding: 0.4rem 0;
+      opacity: 0; visibility: hidden;
       transform: translateX(-50%) translateY(-4px);
+      transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
       z-index: 200;
     }
-    .nav-dropdown:hover .nav-dropdown-menu {
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
       opacity: 1; visibility: visible;
       transform: translateX(-50%) translateY(0);
+      transition: opacity .15s ease, transform .15s ease, visibility 0s linear 0s;
     }
     .nav-dropdown-item {
       display: block; padding: 0.65rem 1.1rem;
