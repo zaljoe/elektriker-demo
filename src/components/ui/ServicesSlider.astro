@@ -1,11 +1,11 @@
 ---
 const services = [
-  { slug: "residential-wiring",      title: "Elinstallation & Ominstallation", short: "Säker, regelsäker elinstallation för gamla och nya hus.",     tag: "Heminstallation", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64" },
-  { slug: "panel-upgrades",          title: "Centralbyten & Elreparationer",   short: "Uppgradera din central innan den blir en fara.",                tag: "Elcentral",       image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4" },
-  { slug: "ev-charger-installation", title: "EV-laddare Installation",         short: "Level 2-laddare installerade snabbt och korrekt hemma.",        tag: "Elbil",           image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7" },
-  { slug: "lighting-installation",   title: "Belysningsinstallation",          short: "Inomhus- och utomhusbelysning som imponerar och håller.",       tag: "Belysning",       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f" },
-  { slug: "emergency-electrical",    title: "Akut Eljour",                     short: "Jour dygnet runt — vi svarar när andra inte gör det.",          tag: "Jour 24/7",       image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a" },
-  { slug: "commercial-electrical",   title: "Kommersiella Eltjänster",         short: "Pålitlig el för kontor, butiker och lager.",                    tag: "Företag",         image: "https://images.unsplash.com/photo-1497366216548-37526070297c" },
+  { slug: "residential-wiring",      title: "Elinstallation & Ominstallation", short: "Säker, regelsäker elinstallation för gamla och nya hus.",     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64" },
+  { slug: "panel-upgrades",          title: "Centralbyten & Elreparationer",   short: "Uppgradera din central innan den blir en fara.",                image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4" },
+  { slug: "ev-charger-installation", title: "EV-laddare Installation",         short: "Level 2-laddare installerade snabbt och korrekt hemma.",        image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7" },
+  { slug: "lighting-installation",   title: "Belysningsinstallation",          short: "Inomhus- och utomhusbelysning som imponerar och håller.",       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f" },
+  { slug: "emergency-electrical",    title: "Akut Eljour",                     short: "Jour dygnet runt — vi svarar när andra inte gör det.",          image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a" },
+  { slug: "commercial-electrical",   title: "Kommersiella Eltjänster",         short: "Pålitlig el för kontor, butiker och lager.",                    image: "https://images.unsplash.com/photo-1497366216548-37526070297c" },
 ];
 
 const imgQuery = (w: number) => `?w=${w}&q=70&auto=format&fit=crop`;
@@ -36,7 +36,6 @@ const imgSizes = "(max-width: 480px) 88vw, (max-width: 768px) 50vw, (max-width: 
             width="600"
             height="390"
           />
-          <span class="service-tag">{service.tag}</span>
           <div class="service-cta">
             <span class="service-cta-pill">
               Se tjänsten
@@ -129,21 +128,6 @@ const imgSizes = "(max-width: 480px) 88vw, (max-width: 768px) 50vw, (max-width: 
   }
   .service-card:hover .service-img-wrap::after {
     background: linear-gradient(to top, #1e293b 0%, transparent 55%);
-  }
-
-  .service-tag {
-    position: absolute;
-    top: 12px; left: 12px;
-    padding: 3px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    color: #fff;
-    backdrop-filter: blur(6px);
-    z-index: 2;
   }
 
   .service-cta {
