@@ -1,12 +1,17 @@
 ---
 const services = [
-  { slug: "residential-wiring",      title: "Elinstallation & Ominstallation", short: "Säker, regelsäker elinstallation för gamla och nya hus.",     tag: "Heminstallation", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70" },
-  { slug: "panel-upgrades",          title: "Centralbyten & Elreparationer",   short: "Uppgradera din central innan den blir en fara.",                tag: "Elcentral",       image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=70" },
-  { slug: "ev-charger-installation", title: "EV-laddare Installation",         short: "Level 2-laddare installerade snabbt och korrekt hemma.",        tag: "Elbil",           image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=70" },
-  { slug: "lighting-installation",   title: "Belysningsinstallation",          short: "Inomhus- och utomhusbelysning som imponerar och håller.",       tag: "Belysning",       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=70" },
-  { slug: "emergency-electrical",    title: "Akut Eljour",                     short: "Jour dygnet runt — vi svarar när andra inte gör det.",          tag: "Jour 24/7",       image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?w=600&q=70" },
-  { slug: "commercial-electrical",   title: "Kommersiella Eltjänster",         short: "Pålitlig el för kontor, butiker och lager.",                    tag: "Företag",         image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=70" },
+  { slug: "residential-wiring",      title: "Elinstallation & Ominstallation", short: "Säker, regelsäker elinstallation för gamla och nya hus.",     tag: "Heminstallation", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64" },
+  { slug: "panel-upgrades",          title: "Centralbyten & Elreparationer",   short: "Uppgradera din central innan den blir en fara.",                tag: "Elcentral",       image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4" },
+  { slug: "ev-charger-installation", title: "EV-laddare Installation",         short: "Level 2-laddare installerade snabbt och korrekt hemma.",        tag: "Elbil",           image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7" },
+  { slug: "lighting-installation",   title: "Belysningsinstallation",          short: "Inomhus- och utomhusbelysning som imponerar och håller.",       tag: "Belysning",       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f" },
+  { slug: "emergency-electrical",    title: "Akut Eljour",                     short: "Jour dygnet runt — vi svarar när andra inte gör det.",          tag: "Jour 24/7",       image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a" },
+  { slug: "commercial-electrical",   title: "Kommersiella Eltjänster",         short: "Pålitlig el för kontor, butiker och lager.",                    tag: "Företag",         image: "https://images.unsplash.com/photo-1497366216548-37526070297c" },
 ];
+
+const imgQuery = (w: number) => `?w=${w}&q=70&auto=format&fit=crop`;
+const imgSrcset = (base: string) =>
+  `${base}${imgQuery(320)} 320w, ${base}${imgQuery(480)} 480w, ${base}${imgQuery(640)} 640w, ${base}${imgQuery(800)} 800w`;
+const imgSizes = "(max-width: 480px) 88vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 300px";
 ---
 
 <div class="services-slider">
@@ -21,7 +26,16 @@ const services = [
     {services.map(service => (
       <a href={`/services/${service.slug}/`} class="service-card">
         <div class="service-img-wrap">
-          <img src={service.image} alt={service.title} loading="lazy" width="600" height="390" />
+          <img
+            src={`${service.image}${imgQuery(480)}`}
+            srcset={imgSrcset(service.image)}
+            sizes={imgSizes}
+            alt={service.title}
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="390"
+          />
           <span class="service-tag">{service.tag}</span>
           <div class="service-cta">
             <span class="service-cta-pill">

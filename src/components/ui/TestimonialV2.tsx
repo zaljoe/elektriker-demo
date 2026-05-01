@@ -8,58 +8,60 @@ interface Testimonial {
   role: string;
 }
 
+const avatarQuery = (w: number) => `?auto=format&fit=crop&q=70&w=${w}&h=${w}`;
+
 const testimonials: Testimonial[] = [
   {
     text: "Ringde klockan 20 för en utlöst jordfelsbrytare. Var på plats inom 45 minuter, hittade felet och hade allt klart till 21:30. Ärlrigt pris, ingen jourtillägg. Rekommenderas varmt.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
     name: "Sara M.",
     role: "Akutreparation · Mars 2025",
   },
   {
     text: "Bytte panneln från 100A till 200A. De skötte tillstånd, besiktning och samordning med elnätet. Jag behövde inte göra något alls. Priset stämde exakt med offerten.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
     name: "David K.",
     role: "Panelbyte · Februari 2025",
   },
   {
     text: "Installerade en Level 2-laddare i mitt garage. Klart på en halvdag, allt enligt regler. Teknikern gick igenom allt som gjorts och svarade på varje fråga. Starkt rekommenderat.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
     name: "Maria T.",
     role: "EV-laddare · Januari 2025",
   },
   {
     text: "Kopplade om vårt kontor under en helg. Professionella, städade upp efter sig och klart i tid. Störde inte verksamheten alls.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
     name: "James R.",
     role: "Kommersiell el · December 2024",
   },
   {
     text: "Ominstallerades halva huset under renoveringen. Dök upp varje dag, kommunicerade tydligt och godkändes vid besiktningen första gången.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
     name: "Karin B.",
     role: "Ominstallation · April 2025",
   },
   {
     text: "Brännlukt från ett vägguttag klockan 23. De kom ut, hittade en överhettad kopplingsdosa och säkrade allt. Mycket betryggande och snabbt.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     name: "Göran N.",
     role: "Akutreparation · Januari 2025",
   },
   {
     text: "Inbyggd belysning i kök och vardagsrum. Transformerade båda rummen totalt. Bra råd om placering och ljussättning.",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
     name: "Susan P.",
     role: "Belysning · Mars 2025",
   },
   {
     text: "Flimrande lampor i månader — annat företag hittade inget. Dessa hittade felet på 20 minuter, lös anslutning i kopplingsdosan. Perfekt.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
     name: "Tom H.",
     role: "Felsökning · Februari 2025",
   },
   {
     text: "Ny undercentral för garage installerad och godkänd på två dagar. Matningsledning, central och allting på plats. Nöjdare kan man inte bli.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=70&w=80&h=80",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
     name: "Carol W.",
     role: "Undercentral · Januari 2025",
   },
@@ -107,8 +109,11 @@ const TestimonialsColumn = ({
                   <img
                     width={40}
                     height={40}
-                    src={image}
+                    src={`${image}${avatarQuery(40)}`}
+                    srcSet={`${image}${avatarQuery(40)} 1x, ${image}${avatarQuery(80)} 2x`}
                     alt={`Recension av ${name}`}
+                    loading="lazy"
+                    decoding="async"
                     className="h-10 w-10 rounded-full object-cover ring-2 ring-neutral-100 group-hover:ring-blue-200 transition-all duration-300"
                   />
                   <div className="flex flex-col">
